@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- ホスト: 127.0.0.1
--- 生成日時: 2026-02-25 04:48:00
+-- 生成日時: 2026-02-25 07:42:59
 -- サーバのバージョン： 10.4.32-MariaDB
 -- PHP のバージョン: 8.2.12
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- データベース: `gyozafes`
 --
-CREATE DATABASE IF NOT EXISTS `gyozafes` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `gyozafes`;
 
 -- --------------------------------------------------------
 
@@ -37,6 +35,11 @@ CREATE TABLE `admins` (
   `update_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- 挿入前にテーブルを空にする `admins`
+--
+
+TRUNCATE TABLE `admins`;
 -- --------------------------------------------------------
 
 --
@@ -55,6 +58,11 @@ CREATE TABLE `contacts` (
   `update_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- 挿入前にテーブルを空にする `contacts`
+--
+
+TRUNCATE TABLE `contacts`;
 -- --------------------------------------------------------
 
 --
@@ -68,6 +76,11 @@ CREATE TABLE `contact_status` (
   `update_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- 挿入前にテーブルを空にする `contact_status`
+--
+
+TRUNCATE TABLE `contact_status`;
 -- --------------------------------------------------------
 
 --
@@ -83,6 +96,11 @@ CREATE TABLE `faq` (
   `update_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- 挿入前にテーブルを空にする `faq`
+--
+
+TRUNCATE TABLE `faq`;
 -- --------------------------------------------------------
 
 --
@@ -92,10 +110,16 @@ CREATE TABLE `faq` (
 CREATE TABLE `faq_categories` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
+  `is_delete` tinyint(1) DEFAULT NULL,
   `create_at` datetime DEFAULT NULL,
   `update_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- 挿入前にテーブルを空にする `faq_categories`
+--
+
+TRUNCATE TABLE `faq_categories`;
 -- --------------------------------------------------------
 
 --
@@ -110,6 +134,11 @@ CREATE TABLE `news` (
   `update_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- 挿入前にテーブルを空にする `news`
+--
+
+TRUNCATE TABLE `news`;
 -- --------------------------------------------------------
 
 --
@@ -128,6 +157,11 @@ CREATE TABLE `products` (
   `update_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- 挿入前にテーブルを空にする `products`
+--
+
+TRUNCATE TABLE `products`;
 -- --------------------------------------------------------
 
 --
@@ -139,10 +173,16 @@ CREATE TABLE `shops` (
   `shop_num` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `body` text DEFAULT NULL,
+  `is_delete` tinyint(1) DEFAULT NULL,
   `create_at` datetime DEFAULT NULL,
   `update_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- 挿入前にテーブルを空にする `shops`
+--
+
+TRUNCATE TABLE `shops`;
 --
 -- ダンプしたテーブルのインデックス
 --
