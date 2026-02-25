@@ -38,7 +38,6 @@
         * 確認、完了メッセージ表示
         * DBに登録(contact-add-do.php)
     * `index.html` → お知らせ一覧の動的表示
-    * `shop.html`→`shop.php`
     * `shop-info00.html`→`shop-info.php`
     * ハンバーガーメニュー→表示とアニメーション
     * `news.html`→`news.php` (動的にページ生成)
@@ -46,16 +45,21 @@
 * **新規作成するページ**:
 * ***管理者ログイン画面***（adminフォルダを作ってそこにまとめる）
     * `index.php`
+    * `nav.php`
     * `login.php`
+    * `login-do.php`
     * `logout.php`
     * `contact-list.php`
-    * `contact-detail.php`(余裕があれば)
+        * `contact-detail.php`(余裕があれば)
+        * `contact-do.php`
     * `news-list.php`
     * `news-add.php`
-    *   `news-add-do.php`
+        * `news-add-do.php`
     * `news-edit.php`
-    *   `news-edit-do.php`
+        * `news-edit-do.php`
 * ***共通機能***
+    * `config.php`
+    * `functions.php`
     * `header.php`
     * `footer.php`
 
