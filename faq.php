@@ -31,17 +31,17 @@
     <header class="l-header" id="top">
         <div class="l-header-pc  c-header-top">
             <p class="c-header-logo">
-                <a href="index.html">
+                <a href="index.php">
                     <img class="pc-logo" src="./img/logo_line_01.svg" alt="ふくおか餃子FES">
                 </a>
             </p>
             <nav class="c-header-nav">
                 <ul class="c-header-nav__list">
-                    <li><a href="information.html">フェスについて</a></li>
-                    <li><a href="information.html#access">アクセス</a></li>
-                    <li><a href="shops.html">出店店舗＆メニュー</a></li>
-                    <li><a href="news.html">お知らせ</a></li>
-                    <li><a href="faq.html">よくある質問</a></li>
+                    <li><a href="information.php">フェスについて</a></li>
+                    <li><a href="information.php#access">アクセス</a></li>
+                    <li><a href="shops.php">出店店舗＆メニュー</a></li>
+                    <li><a href="news.php">お知らせ</a></li>
+                    <li><a href="faq.php">よくある質問</a></li>
                     <li><a href="#"><img class="c-header-nav__x" src="./img/x-logo.svg" alt="x"></a></li>
                     <li><a href="#"><img class="c-header-nav__insta" src="./img/Instagram-logo.svg" alt="instagram"></a>
                     </li>
@@ -52,7 +52,7 @@
 
         <div class="l-header-sp">
             <p class="c-header-logo">
-                <a href="index.html">
+                <a href="index.php">
                     <img src="./img/logo_line_01.svg" alt="ふくおか餃子FES">
                 </a>
             </p>
@@ -133,7 +133,7 @@
                 <dt>
                     <span class="c-faqCard-q">Q</span>問い合わせ先を教えてください。
                 </dt>
-                <dd class="l-faq-dd-last">「<a class="c-bb" href="./contact.html">お問い合わせ</a>」ページのフォームまたは事務局メール宛にご連絡ください。
+                <dd class="l-faq-dd-last">「<a class="c-bb" href="./contact.php">お問い合わせ</a>」ページのフォームまたは事務局メール宛にご連絡ください。
                 </dd>
             </dl>
         </section>
@@ -147,8 +147,8 @@
     <footer class="l-footer">
 
         <ul>
-            <li><a href="contact.html">お問い合わせ</a></li>
-            <li><a href="privacy.html">プライバシーポリシー</a></li>
+            <li><a href="contact.php">お問い合わせ</a></li>
+            <li><a href="privacy.php">プライバシーポリシー</a></li>
         </ul>
 
 

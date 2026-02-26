@@ -33,17 +33,17 @@
     <header class="l-header" id="top">
         <div class="l-header-pc  c-header-top">
             <p class="c-header-logo">
-                <a href="index.html">
+                <a href="index.php">
                     <img class="pc-logo" src="./img/logo_line_01.svg" alt="ふくおか餃子FES">
                 </a>
             </p>
             <nav class="c-header-nav">
                 <ul class="c-header-nav__list">
-                    <li><a href="information.html">フェスについて</a></li>
-                    <li><a href="information.html#access">アクセス</a></li>
-                    <li><a href="shops.html">出店店舗＆メニュー</a></li>
-                    <li><a href="news.html">お知らせ</a></li>
-                    <li><a href="faq.html">よくある質問</a></li>
+                    <li><a href="information.php">フェスについて</a></li>
+                    <li><a href="information.php#access">アクセス</a></li>
+                    <li><a href="shops.php">出店店舗＆メニュー</a></li>
+                    <li><a href="news.php">お知らせ</a></li>
+                    <li><a href="faq.php">よくある質問</a></li>
                     <li><a href="#"><img class="c-header-nav__x" src="./img/x-logo.svg" alt="x"></a></li>
                     <li><a href="#"><img class="c-header-nav__insta" src="./img/Instagram-logo.svg" alt="instagram"></a>
                     </li>
@@ -54,7 +54,7 @@
 
         <div class="l-header-sp">
             <p class="c-header-logo">
-                <a href="index.html">
+                <a href="index.php">
                     <img src="./img/logo_line_01.svg" alt="ふくおか餃子FES">
                 </a>
             </p>
@@ -80,7 +80,7 @@
                         <dd>博多ぎょうざ堂 </dd>
                     </dl>
                     <div class="c-btn c-btn__red l-mnbtn__red">
-                        <a href="shop-info01.html">
+                        <a href="shop-info01.php">
                             詳細はこちら
                         </a>
                     </div>
@@ -99,7 +99,7 @@
                         <dd>中華食堂 <ruby>蒸々屋<rt>むしむしや</rt></ruby></dd>
                     </dl>
                     <div class="c-btn c-btn__red l-mnbtn__red">
-                        <a href="shop-info02.html">
+                        <a href="shop-info02.php">
                             詳細はこちら
                         </a>
                     </div>
@@ -117,7 +117,7 @@
                         <dd>餃子茶寮 <ruby>彩香<rt>さいか</rt></ruby></dd>
                     </dl>
                     <div class="c-btn c-btn__red l-mnbtn__red">
-                        <a href="shop-info03.html">
+                        <a href="shop-info03.php">
                             詳細はこちら
                         </a>
                     </div>
@@ -135,7 +135,7 @@
                         <dd>餃子バル <ruby>風雷坊<rt>ふうらいぼう</rt></ruby></dd>
                     </dl>
                     <div class="c-btn c-btn__red l-mnbtn__red">
-                        <a href="shop-info04.html">
+                        <a href="shop-info04.php">
                             詳細はこちら
                         </a>
                     </div>
@@ -154,7 +154,7 @@
 
                     </dl>
                     <div class="c-btn c-btn__red l-mnbtn__red">
-                        <a href="shop-info05.html">
+                        <a href="shop-info05.php">
                             詳細はこちら
                         </a>
                     </div>
@@ -172,7 +172,7 @@
                         <dd>餃子処 <ruby>湯心<rt>ゆごころ</rt></ruby></dd>
                     </dl>
                     <div class="c-btn c-btn__red l-mnbtn__red">
-                        <a href="shop-info06.html">
+                        <a href="shop-info06.php">
                             詳細はこちら
                         </a>
                     </div>
@@ -190,7 +190,7 @@
                         <dd><ruby>辛味房<rt>しんみぼう</rt></ruby><ruby>赤龍<rt>せきりゅう</rt></ruby></dd>
                     </dl>
                     <div class="c-btn c-btn__red l-mnbtn__red">
-                        <a href="shop-info07.html">
+                        <a href="shop-info07.php">
                             詳細はこちら
                         </a>
                     </div>
@@ -208,8 +208,8 @@
     <footer class="l-footer">
 
         <ul>
-            <li><a href="contact.html">お問い合わせ</a></li>
-            <li><a href="privacy.html">プライバシーポリシー</a></li>
+            <li><a href="contact.php">お問い合わせ</a></li>
+            <li><a href="privacy.php">プライバシーポリシー</a></li>
         </ul>
 
 
