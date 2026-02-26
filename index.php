@@ -35,17 +35,17 @@
     <header class="l-header" id="top">
         <div class="l-header-pc  c-header-top">
             <p class="c-header-logo">
-                <a href="index.html">
+                <a href="index.php">
                     <img class="pc-logo" src="./img/logo_line_01.svg" alt="ふくおか餃子FES">
                 </a>
             </p>
             <nav class="c-header-nav">
                 <ul class="c-header-nav__list">
-                    <li><a href="information.html">フェスについて</a></li>
-                    <li><a href="information.html#access">アクセス</a></li>
-                    <li><a href="shops.html">出店店舗＆メニュー</a></li>
-                    <li><a href="news.html">お知らせ</a></li>
-                    <li><a href="faq.html">よくある質問</a></li>
+                    <li><a href="information.php">フェスについて</a></li>
+                    <li><a href="information.php#access">アクセス</a></li>
+                    <li><a href="shops.php">出店店舗＆メニュー</a></li>
+                    <li><a href="news.php">お知らせ</a></li>
+                    <li><a href="faq.php">よくある質問</a></li>
                     <li><a href="#"><img class="c-header-nav__x" src="./img/x-logo.svg" alt="x"></a></li>
                     <li><a href="#"><img class="c-header-nav__insta" src="./img/Instagram-logo.svg" alt="instagram"></a>
                     </li>
@@ -56,7 +56,7 @@
 
         <div class="l-header-sp">
             <p class="c-header-logo">
-                <a href="index.html">
+                <a href="index.php">
                     <img src="./img/logo_line_01.svg" alt="ふくおか餃子FES">
                 </a>
             </p>
@@ -119,7 +119,7 @@
                                         福岡市中央区舞鶴1丁目7
                                     </span>
                                     <div class="c-btn c-btn__red">
-                                        <a href="information.html#access">
+                                        <a href="information.php#access">
                                             マップはこちら
                                         </a>
                                     </div>
@@ -128,14 +128,14 @@
                         </li>
                     </ul>
                     <div class="c-btn c-btn__black c-about-pc">
-                        <a href="information.html">VIEW MORE</a>
+                        <a href="information.php">VIEW MORE</a>
                     </div>
                 </div>
             </div>
 
             <div class="l-wrapper">
 
-                <a href="shops.html">
+                <a href="shops.php">
                     <picture>
                         <source srcset="./img/menu-pc.png" media="(min-width:768px)">
                         <img src="./img/menu-sp.png" alt="">
@@ -171,7 +171,7 @@
                             <time datetime="2030-02-16">2030.2.16</time>（土）
                         </dt>
                         <dd class="c-news-title">
-                            <a href="news-detail.html">出店企業様大募集中！</a>
+                            <a href="news-detail.php">出店企業様大募集中！</a>
                         </dd>
                     </dl>
                     <dl class="c-news-detail">
@@ -184,7 +184,7 @@
                     </dl>
                 </div>
                 <div class="c-btn c-btn__black">
-                    <a href="news.html">VIEW MORE</a>
+                    <a href="news.php">VIEW MORE</a>
                 </div>
             </div>
         </section>
@@ -222,8 +222,8 @@
     <footer class="l-footer">
 
         <ul>
-            <li><a href="contact.html">お問い合わせ</a></li>
-            <li><a href="privacy.html">プライバシーポリシー</a></li>
+            <li><a href="contact.php">お問い合わせ</a></li>
+            <li><a href="privacy.php">プライバシーポリシー</a></li>
         </ul>
 
 
