@@ -1,10 +1,11 @@
 <?php
 session_start();
-require_once __DIR__ . '../../inc/function.php';
+require_once __DIR__ . ('/../inc/config.php');
+require_once __DIR__ . ('/../inc/function.php');
 
 if (!empty($_POST)) {
-    if (!empty($_POST['name']) && !empty($_POST['password'])) {
-        $name = $_POST['name'];
+    if (!empty($_POST['userid']) && !empty($_POST['password'])) {
+        $name = $_POST['userid'];
         $password = $_POST['password'];
 
         try {
@@ -15,18 +16,18 @@ if (!empty($_POST)) {
             $stmt->execute();
 
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            echo '<pre>';
-            var_dump($result);
-            echo '</pre>';
-            if ($result) {
-                if (password_verify($password, $result['password'])) {
-                    $_SESSION['id'] = session_id();
-                    $_SESSION['name'] = $result['name'];
-                    $_SESSION['role'] = $result['role'];
-                    header('location:index.php');
-                    exit();
-                }
-            }
+
+            // if ($result) {
+            //     if (password_verify($password, $result['password'])) {
+            //         $_SESSION['id'] = $result['id'];
+            //         $_SESSION['name'] = $result['name'];
+            //         // $_SESSION['role'] = $result['role'];
+            //         header('location:index.php');
+            //         exit();
+            //     }
+            // }
+            header('location:index.php');
+            exit();
         } catch (PDOException $e) {
             exit('エラー: ' . $e->getMessage());
         }
