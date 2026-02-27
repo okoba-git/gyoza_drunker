@@ -1,11 +1,11 @@
 <?php
-// session_start();
-// require_once __DIR__ . '';
+session_start();
+require_once __DIR__ . '../../inc/function.php';
 
-// if (isset($_SESSION['id'])) {
-//     header('location:index.php');
-//     exit();
-// }
+if (isset($_SESSION['id'])) {
+    header('location:index.php');
+    exit();
+}
 
 ?>
 <!doctype html>
