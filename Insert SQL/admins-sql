@@ -1,0 +1,1 @@
+INSERT INTO `admins`(`id`,`name`, `pass`, `create_at`, `update_at`) VALUES(1,'admin1','admin1234',now(),now()), (2,'admin2','admin1234',now(),now()), (3,'admin3','admin1234',now(),now()), (4,'admin4','admin1234',now(),now());
