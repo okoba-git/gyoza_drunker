@@ -1,3 +1,14 @@
+<?php
+require_once __DIR__ . '/inc/function.php';
+
+try {
+    $result = get_display_menu_data();
+    debug_var_dump($result);
+} catch (PDOException $e) {
+    debug_log($e->getMessage());
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -38,143 +49,32 @@
         <div class="c-section">
 
             <ul class="l-muCard-ul">
-                <li class="c-mnCard l-mnCard"><img src="./img/menu01.jpg" alt="肉汁あふれる肉餃の画像" class="c-mnCard-img">
-                    <p class="c-mnCard-bs l-mnCard-bs">B-01</p>
-                    <p class="c-mnCard-title l-mnCard-title">肉汁あふれる肉餃子</p>
-                    <dl class="c-mnCard-des l-mnCard-des">
-                        <dt>個数：</dt>
-                        <dd>6個入り</dd>
-                        <dt>価格：</dt>
-                        <dd>580円（税込）</dd>
-                        <dt>店名：</dt>
-                        <dd>博多ぎょうざ堂 </dd>
-                    </dl>
-                    <div class="c-btn c-btn__red l-mnbtn__red">
-                        <a href="shop-info01.php">
-                            詳細はこちら
-                        </a>
-                    </div>
-                </li>
-
-                <li class="c-mnCard l-mnCard">
-                    <img src="./img/menu02.jpg" alt="ふっくら蒸しあげ餃子の画像" class="c-mnCard-img">
-                    <p class="c-mnCard-bs l-mnCard-bs">B-02</p>
-                    <p class="c-mnCard-title l-mnCard-title">ふっくら蒸しあげ餃子</p>
-                    <dl class="c-mnCard-des l-mnCard-des">
-                        <dt>個数：</dt>
-                        <dd>8個入り </dd>
-                        <dt>価格：</dt>
-                        <dd>520円（税込）</dd>
-                        <dt>店名：</dt>
-                        <dd>中華食堂 <ruby>蒸々屋<rt>むしむしや</rt></ruby></dd>
-                    </dl>
-                    <div class="c-btn c-btn__red l-mnbtn__red">
-                        <a href="shop-info02.php">
-                            詳細はこちら
-                        </a>
-                    </div>
-                </li>
-                <li class="c-mnCard l-mnCard">
-                    <img src="./img/menu03.jpg" alt="中華風スープ餃子の画像" class="c-mnCard-img">
-                    <p class="c-mnCard-bs l-mnCard-bs">B-03</p>
-                    <p class="c-mnCard-title l-mnCard-title">中華風スープ餃子</p>
-                    <dl class="c-mnCard-des l-mnCard-des">
-                        <dt>個数：</dt>
-                        <dd>5個入り </dd>
-                        <dt>価格：</dt>
-                        <dd>680円（税込</dd>
-                        <dt>店名：</dt>
-                        <dd>餃子茶寮 <ruby>彩香<rt>さいか</rt></ruby></dd>
-                    </dl>
-                    <div class="c-btn c-btn__red l-mnbtn__red">
-                        <a href="shop-info03.php">
-                            詳細はこちら
-                        </a>
-                    </div>
-                </li>
-                <li class="c-mnCard l-mnCard">
-                    <img src="./img/menu04.jpg" alt="カリもち！揚げ餃子の画像" class="c-mnCard-img">
-                    <p class="c-mnCard-bs l-mnCard-bs">B-04</p>
-                    <p class="c-mnCard-title l-mnCard-title">カリもち！揚げ餃子</p>
-                    <dl class="c-mnCard-des l-mnCard-des">
-                        <dt>個数：</dt>
-                        <dd>5個入り</dd>
-                        <dt>価格：</dt>
-                        <dd>600円（税込）</dd>
-                        <dt>店名：</dt>
-                        <dd>餃子バル <ruby>風雷坊<rt>ふうらいぼう</rt></ruby></dd>
-                    </dl>
-                    <div class="c-btn c-btn__red l-mnbtn__red">
-                        <a href="shop-info04.php">
-                            詳細はこちら
-                        </a>
-                    </div>
-                </li>
-                <li class="c-mnCard l-mnCard">
-                    <img src="./img/menu05.jpg" alt="お口に広がる地中海の風の画像" class="c-mnCard-img">
-                    <p class="c-mnCard-bs l-mnCard-bs">B-05</p>
-                    <p class="c-mnCard-title l-mnCard-title">お口に広がる地中海の風</p>
-                    <dl class="c-mnCard-des l-mnCard-des">
-                        <dt>個数：</dt>
-                        <dd>5個入り</dd>
-                        <dt>価格：</dt>
-                        <dd>720円（税込）</dd>
-                        <dt>店名：</dt>
-                        <dd>Mediterraneo Gyoza<br>(メディテラネオ ギョウザ)</dd>
-
-                    </dl>
-                    <div class="c-btn c-btn__red l-mnbtn__red">
-                        <a href="shop-info05.php">
-                            詳細はこちら
-                        </a>
-                    </div>
-                </li>
-                <li class="c-mnCard l-mnCard">
-                    <img src="./img/menu06.jpg" alt="素材の旨味ひきたつ水餃子の画像" class="c-mnCard-img">
-                    <p class="c-mnCard-bs l-mnCard-bs">B-06</p>
-                    <p class="c-mnCard-title l-mnCard-title">素材の旨味ひきたつ水餃子</p>
-                    <dl class="c-mnCard-des l-mnCard-des">
-                        <dt>個数：</dt>
-                        <dd>8個入り</dd>
-                        <dt>価格：</dt>
-                        <dd>550円（税込）</dd>
-                        <dt>店名：</dt>
-                        <dd>餃子処 <ruby>湯心<rt>ゆごころ</rt></ruby></dd>
-                    </dl>
-                    <div class="c-btn c-btn__red l-mnbtn__red">
-                        <a href="shop-info06.php">
-                            詳細はこちら
-                        </a>
-                    </div>
-                </li>
-                <li class="c-mnCard l-mnCard">
-                    <img src="./img/menu07.jpg" alt="しびうまラー油餃子の画像" class="c-mnCard-img">
-                    <p class="c-mnCard-bs l-mnCard-bs">B-07</p>
-                    <p class="c-mnCard-title l-mnCard-title">しびうまラー油餃子</p>
-                    <dl class="c-mnCard-des l-mnCard-des">
-                        <dt>個数：</dt>
-                        <dd>6個入り</dd>
-                        <dt>価格：</dt>
-                        <dd> 620円（税込）</dd>
-                        <dt>店名：</dt>
-                        <dd><ruby>辛味房<rt>しんみぼう</rt></ruby><ruby>赤龍<rt>せきりゅう</rt></ruby></dd>
-                    </dl>
-                    <div class="c-btn c-btn__red l-mnbtn__red">
-                        <a href="shop-info07.php">
-                            詳細はこちら
-                        </a>
-                    </div>
-                </li>
+                <?php foreach ($result as $menu): ?>
+                    <li class="c-mnCard l-mnCard">
+                        <img src="./img/<?php echo $menu['file_name']; ?>" alt="<?php echo $menu['image_alt']; ?>" class="c-mnCard-img">
+                        <p class="c-mnCard-bs l-mnCard-bs"><?php echo $menu['shop_num']; ?></p>
+                        <p class="c-mnCard-title l-mnCard-title"><?php echo $menu['product_name']; ?></p>
+                        <dl class="c-mnCard-des l-mnCard-des">
+                            <dt>個数：</dt>
+                            <dd><?php echo $menu['quantity']; ?>個入り</dd>
+                            <dt>価格：</dt>
+                            <dd><?php echo $menu['price']; ?>円（税込）</dd>
+                            <dt>店名：</dt>
+                            <dd><?php echo $menu['shop_name']; ?></dd>
+                        </dl>
+                        <div class="c-btn c-btn__red l-mnbtn__red">
+                            <a href="shop-info.php?id = <?php echo $menu['product_id']; ?>">
+                                詳細はこちら
+                            </a>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
             </ul>
-
         </div>
         <p class="c-btn-jump">
             <a href="#top">TOP</a>
         </p>
-
     </main>
-
-
     <?php require_once __DIR__ . '/inc/footer.php'; ?>
     <script src="./js/hamburger.js"></script>
 </body>
