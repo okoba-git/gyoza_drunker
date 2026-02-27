@@ -63,7 +63,7 @@ try {
                             <dd><?php echo $menu['shop_name']; ?></dd>
                         </dl>
                         <div class="c-btn c-btn__red l-mnbtn__red">
-                            <a href="shop-info.php?id = <?php echo $menu['product_id']; ?>">
+                            <a href="shop-info.php?id=<?php echo $menu['product_id']; ?>">
                                 詳細はこちら
                             </a>
                         </div>
