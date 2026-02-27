@@ -3,7 +3,6 @@ require_once __DIR__ . '/inc/function.php';
 
 try {
     $result = get_display_menu_data();
-    debug_var_dump($result);
 } catch (PDOException $e) {
     debug_log($e->getMessage());
 }

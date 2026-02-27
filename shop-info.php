@@ -4,7 +4,6 @@ require_once __DIR__ . '/inc/function.php';
 $product_id = (int)$_GET['id'];
 try {
     $menu = get_display_menu_data($product_id);
-    debug_var_dump($menu);
 } catch (PDOException $e) {
     debug_log($e->getMessage());
 }
