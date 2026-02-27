@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- ホスト: 127.0.0.1
--- 生成日時: 2026-02-25 07:42:59
+-- 生成日時: 2026-02-26 07:29:10
 -- サーバのバージョン： 10.4.32-MariaDB
 -- PHP のバージョン: 8.2.12
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- データベース: `gyozafes`
 --
+CREATE DATABASE IF NOT EXISTS `gyozafes` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `gyozafes`;
 
 -- --------------------------------------------------------
 
