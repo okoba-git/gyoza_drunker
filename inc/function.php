@@ -32,14 +32,14 @@ function get_display_menu_data ($product_id = 0) {
             shops.shop_num, 
             shops.name AS shop_name, 
             shops.body AS shop_body 
-            FROM products JOIN shops ON shops.id = products.shop_id WHERE shops.is_deleted = 0';
-    $add = $product_id !== 0 ? ', products.id=:id' : '';
+            FROM products JOIN shops ON shops.id = products.shop_id WHERE shops.is_delete = 0';
+    $add = $product_id !== 0 ? ' AND products.id=:id' : '';
     $stmt = $db->prepare($sql . $add);
     if($product_id !== 0){
         $stmt->bindParam(':id', $product_id, PDO::PARAM_INT);
     }
     $stmt->execute();
-    return $product_id === 0 ? $stmt->fetch(PDO::FETCH_ASSOC) : $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $product_id !== 0 ? $stmt->fetch(PDO::FETCH_ASSOC) : $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 /**
