@@ -6,7 +6,9 @@
               <li class="navbar-brand"><a href="contact/contact-check.php" class="nav-link">お問い合わせ</a></li>
               <li class="navbar-brand"><a href="shop/shop-list.php" class="nav-link">店舗</a></li>
               <li class="navbar-brand"><a href="faq/faq-list.php" class="nav-link">FAQ</a></li>
-              <li class="navbar-brand"><a href="" class="btn btn-info">ログアウト</a></li>
+              <li class="navbar-brand">
+                  <form action="logout-do.php" method="post"><button type="submit" class="btn btn-info">ログアウト</button></form>
+              </li>
           </ul>
       </nav>
   </header>
