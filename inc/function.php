@@ -39,3 +39,27 @@ function get_display_menu_data ($product_id = 0) {
     $stmt->execute();
     return $product_id === 0 ? $stmt->fetch(PDO::FETCH_ASSOC) : $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+/**
+ * 配列を表示する。
+ * 
+ * var_dumpを<pre>で囲んで表示する。デバッグ用なので必ず消すこと。
+ * 
+ * @param array $array デバッグ表示したい配列
+ */
+function debug_var_dump($array){
+    echo '<pre>';
+    var_dump($array);
+    echo '</pre>';
+}
+
+/**
+ * デバッグ用の処理
+ * 
+ * メッセージをechoするだけの処理。後々にエラーログ対応する。
+ * 
+ * @param string $message 表示したい文字列
+ */
+function debug_log($message){
+    echo $message;
+}
