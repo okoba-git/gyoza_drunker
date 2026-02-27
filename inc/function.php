@@ -27,6 +27,7 @@ function get_display_menu_data ($product_id = 0) {
             products.quantity, 
             products.price, 
             products.file_name, 
+            products.image_alt,
             shops.shop_num, 
             shops.name AS shop_name, 
             shops.body AS shop_body 
