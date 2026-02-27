@@ -728,7 +728,142 @@ ol.c-pravacy-text-list-abc {
     list-style-type: lower-roman;
 }
 
+/* ハンバーガーメニューの設定 */
+.c-hamburger-nav {
+    position: fixed;
+    /* top,right,bottom,leftを一括指定 */
+    inset: 0 -100vw 0 100vw;
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 100ms ease-out 0ms;
+    z-index: 1;
+}
 
+/* メニューが開いている時 */
+.open .c-hamburger-nav {
+    translate: -100vw 0;
+    transition: translate 100ms ease-out 0ms;
+}
+
+/* ナビ */
+.c-hamburger-nav__list {
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: center;
+    /* font-size: 50px; */
+    gap: 1.6em;
+}
+
+.c-hamburger-nav li a {
+    font-size: 1.8rem;
+    display: block;
+}
+
+/* SNS */
+.c-hamburger-nav__sns-list {
+    display: flex;
+    height: 20%;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6em;
+}
+
+.c-hamburger-nav__sns-list li a img {
+    display: block;
+}
+
+.c-header-nav__x {
+    aspect-ratio: auto;
+}
+
+.c-header-nav__insta {
+    aspect-ratio: auto;
+}
+
+.c-header-nav__you {
+    aspect-ratio: auto;
+}
+
+/* ハンバーガーボタン */
+.ham-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    z-index: 2;
+}
+
+.ham-line {
+    display: block;
+    height: 2px;
+    width: 30px;
+    background: #2c2c2c;
+    margin: auto;
+    position: relative;
+    transition: all 100ms ease-in-out 100ms;
+}
+
+.open .ham-line {
+    background: transparent;
+    transition: all 100ms ease-in-out 0ms;
+}
+
+.ham-line::before,
+.ham-line::after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: #2c2c2c;
+    position: absolute;
+    transition: all 200ms ease-in 0ms;
+}
+
+.ham-line::before {
+    top: -10px;
+    transition: all 200ms ease-in 0ms;
+}
+
+.open .ham-line::before {
+    rotate: 45deg;
+    top: 0;
+    transition: all 200ms ease-in 0ms;
+}
+
+.ham-line::after {
+    top: 10px;
+    transition: all 200ms ease-in 0ms;
+}
+
+.open .ham-line::after {
+    rotate: -45deg;
+    top: 0;
+    transition: all 200ms ease-in 0ms;
+}
+
+/* HTMLには書きたいけどブラウザ上では非表示にする */
+.visually-hidden {
+    position: fixed !important;
+    /* keep it on viewport */
+    top: 0px !important;
+    left: 0px !important;
+    /* give it non-zero size, VoiceOver on Safari requires at least 2 pixels
+     before allowing buttons to be activated. */
+    width: 4px !important;
+    height: 4px !important;
+    /* visually hide it with overflow and opacity */
+    opacity: 0 !important;
+    overflow: hidden !important;
+    /* remove any margin or padding */
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    /* ensure no other style sets display to none */
+    display: block !important;
+    visibility: visible !important;
+}
 
 /* -----------------PC共通部分----------------- */
 /* ----------------－いじらないでね♥----------------- */
@@ -770,20 +905,16 @@ ol.c-pravacy-text-list-abc {
     }
 
     .c-header-nav__x {
-        width: 25px;
         height: 25px;
     }
 
     .c-header-nav__insta {
-        width: 30px;
         height: 30px;
     }
 
     .c-header-nav__you {
-        width: 30px;
         height: 24px;
     }
-
 
     /* -----------------以下、各ページ設定----------------- */
 
@@ -962,5 +1093,17 @@ ol.c-pravacy-text-list-abc {
     .l-header-sp {
         display: flex;
         justify-content: space-between;
+    }
+
+    .c-header-nav__x {
+        height: 40px;
+    }
+
+    .c-header-nav__insta {
+        height: 50px;
+    }
+
+    .c-header-nav__you {
+        height: 40px;
     }
 }
