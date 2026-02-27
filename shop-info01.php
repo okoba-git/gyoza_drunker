@@ -67,6 +67,7 @@
     </main>
 
     <?php require_once __DIR__ . '/inc/footer.php'; ?>
+    <script src="./js/hamburger.js"></script>
 </body>
 
 </html>
