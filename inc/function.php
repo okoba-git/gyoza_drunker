@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/config.php';
 
 // DBへ接続する関数
 function db_connect()
