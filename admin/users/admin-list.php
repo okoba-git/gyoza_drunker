@@ -59,7 +59,9 @@ try {
                                 <td class="d-flex flex-row gap-2">
                                     <form action="admin-edit.php" method="post">
                                         <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
-                                        <input type="submit" value="編集" class="btn btn-primary">
+                                        <button type="submit" class="btn btn-primary">
+                                            編集
+                                        </button>
                                     </form>
 
                                     <form action="admin-del-do.php" method="post" onsubmit="return confirm('本当に削除してもよろしいですか?')">
