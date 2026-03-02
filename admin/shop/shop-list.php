@@ -1,11 +1,15 @@
 <?php require_once __DIR__ . ('/../../inc/function.php');
 require_once __DIR__ . ('/../../inc/config.php');
+try {
+    $db = db_connect();
+    $sql = 'SELECT name,shop_num,id FROM shops';
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    $e->getMessage();
+}
 
-$db = db_connect();
-$sql = 'SELECT name,shop_num FROM shops';
-$stmt = $db->prepare($sql);
-$stmt->execute();
-$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +25,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body class="l-wrapper">
+    <?php require_once __DIR__ . ('/../inc/header.php'); ?>
 
     <h1>店舗 - 一覧</h1>
     <a class="btn btn-primary mb-3" href="shop-add.php">新規作成</a>
@@ -36,14 +41,18 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <tbody>
                 <tr class="">
                     <td class="col-2"><?php echo $shop['shop_num']; ?></td>
-                    <td class="col-9"><?php echo $shop['name']; ?></td>
-                    <td class="col-1"><a class="btn btn-danger" href="#">削除</a>
+                    <td class="col-9"><a href="shop-detail.php?id=<?php echo $shop['id']; ?>"><?php echo $shop['name']; ?></a></td>
+                    <td class="col-1">
+                        <form><input type="submit" class="btn btn-danger" value="削除"></form>
                     </td>
                 </tr>
             </tbody>
         <?php endforeach; ?>
-
     </table>
+    <div class=" text-center">
+        <a href="../index.php" class="btn btn-primary mt-3">TOPに戻る</a>
+    </div>
+
     <!-- Bootstrap Javascript(jQuery含む) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
