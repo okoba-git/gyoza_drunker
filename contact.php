@@ -23,6 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
     <link rel="icon alternate" href="img/favicon.png" type="image/png">
@@ -33,7 +34,8 @@
     <?php require_once __DIR__ . '/inc/header.php'; ?>
     <main class="l-wrapper">
         <h1 class="c-title c-mb__plus">お問い合わせ</h1>
-        <form action="#" method="post" class="l-inf-form">
+        <div id="message-area"></div>
+        <form action="#" method="post" class="l-inf-form" id="contact_form">
             <div class="c-infCard l-infCard">
                 <label for="user_name" class="l-infCard-lab">お名前<span class="l-infCard-req">必須</span></label>
                 <input type="text" name="user_name" id="user_name" required>
@@ -52,7 +54,7 @@
                 <textarea name="message" id="uese_mes" required></textarea>
             </div>
             </div>
-            <div class="c-contact__btn"><input type="submit" value="送信" class="l-infCard-btn"></div>
+            <div class="c-contact__btn"><input type="submit" value="送信" class="l-infCard-btn" id="submit_btn"></div>
             <!-- <input type="submit" value="送信" class="c-btn"> -->
 
         </form>
@@ -61,6 +63,7 @@
 
     <?php require_once __DIR__ . '/inc/footer.php'; ?>
     <script src="./js/hamburger.js"></script>
+    <script src="./js/contact.js"></script>
 </body>
 
 </html>
