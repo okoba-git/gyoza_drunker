@@ -1,15 +1,19 @@
 <?php
 require_once __DIR__ . ('/../../inc/function.php');
 
+// お問い合わせとお問い合わせステータス用配列
 $contacts = [];
 $status = [];
 try {
+  // DB接続
   $db = db_connect();
+  // お問い合わせテーブルからすべてのデータを取得
   $sql = 'SELECT * FROM contacts';
   $stmt = $db->prepare($sql);
   $stmt->execute();
   $contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+  
+  //お問い合わせ状態テーブルからすべてのステータスを取得 
   $sql = 'SELECT * FROM contact_status';
   $stmt = $db->prepare($sql);
   $stmt->execute();
@@ -52,6 +56,7 @@ try {
           </tr>
         </thead>
         <tbody>
+          <!-- 一覧をテーブルで表示 -->
           <?php foreach ($contacts as $contact): ?>
             <tr>
               <td class="col"><?php echo $contact['id']; ?></td>
@@ -60,6 +65,7 @@ try {
               <td class="col-2"><?php echo $contact['tel']; ?></td>
               <td class="col-3"><?php echo nl2br($contact['body']); ?></td>
               <td class="col-2">
+                <!-- 状態はセレクトボックスで表示 -->
                 <select name="state" class="form-select" aria-label="Default select example" id="contact_state">
                   <?php foreach ($status as $state): ?>
                     <?php $selected = $content['state'] === $state['id'] ? 'selected' : '' ; ?>
