@@ -1,3 +1,9 @@
+<?php
+session_start();
+$message = $_SESSION['res_message'] ?? '';
+unset($_SESSION['res_message']);
+$type =['danger', 'primary'];
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -23,6 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
     <link rel="icon alternate" href="img/favicon.png" type="image/png">
@@ -33,26 +40,33 @@
     <?php require_once __DIR__ . '/inc/header.php'; ?>
     <main class="l-wrapper">
         <h1 class="c-title c-mb__plus">お問い合わせ</h1>
-        <form action="#" method="post" class="l-inf-form">
+        <div id="message-area">
+            <?php if ($message !== ''): ?>
+                <div class="alert alert-<?php echo $type[$message['type']]; ?> alert-dismissible" role="alert">
+                    <div><?php echo $message['msg']; ?></div>
+                </div>
+            <?php endif; ?>
+        </div>
+        <form action="./contact-check.php" method="post" class="l-inf-form" id="contact_form">
             <div class="c-infCard l-infCard">
                 <label for="user_name" class="l-infCard-lab">お名前<span class="l-infCard-req">必須</span></label>
-                <input type="text" name="user_name" id="user_name" required>
+                <input type="text" name="name" id="user_name" required>
             </div>
             <div class="c-infCard l-infCard">
                 <label for="user_email" class="l-infCard-lab">メールアドレス<span class="l-infCard-req">必須</span></label>
-                <input type="email" name="user_email" id="user_email" required>
+                <input type="email" name="email" id="user_email" required>
             </div>
             <div class="c-infCard l-infCard">
                 <label for="user_tel" class="l-infCard-lab">電話番号</label>
-                <input type="tel" name="user_tel" id="user_tel">
+                <input type="tel" name="tel" id="user_tel">
             </div>
             <div class="c-infCard l-infCard">
                 <label for="uese_mes" class="l-infCard-lab l-infCard-lab-q">お問い合わせ内容<span
                         class="l-infCard-req">必須</span></label>
-                <textarea name="message" id="uese_mes" required></textarea>
+                <textarea name="body" id="uese_mes" required></textarea>
             </div>
             </div>
-            <div class="c-contact__btn"><input type="submit" value="送信" class="l-infCard-btn"></div>
+            <div class="c-contact__btn"><input type="submit" value="送信" class="l-infCard-btn" id="submit_btn"></div>
             <!-- <input type="submit" value="送信" class="c-btn"> -->
 
         </form>
@@ -61,6 +75,7 @@
 
     <?php require_once __DIR__ . '/inc/footer.php'; ?>
     <script src="./js/hamburger.js"></script>
+    <script src="./js/contact.js"></script>
 </body>
 
 </html>
