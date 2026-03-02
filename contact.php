@@ -35,23 +35,23 @@
     <main class="l-wrapper">
         <h1 class="c-title c-mb__plus">お問い合わせ</h1>
         <div id="message-area"></div>
-        <form action="#" method="post" class="l-inf-form" id="contact_form">
+        <form action="./contact-check.php" method="post" class="l-inf-form" id="contact_form">
             <div class="c-infCard l-infCard">
                 <label for="user_name" class="l-infCard-lab">お名前<span class="l-infCard-req">必須</span></label>
-                <input type="text" name="user_name" id="user_name" required>
+                <input type="text" name="name" id="user_name" required>
             </div>
             <div class="c-infCard l-infCard">
                 <label for="user_email" class="l-infCard-lab">メールアドレス<span class="l-infCard-req">必須</span></label>
-                <input type="email" name="user_email" id="user_email" required>
+                <input type="email" name="email" id="user_email" required>
             </div>
             <div class="c-infCard l-infCard">
                 <label for="user_tel" class="l-infCard-lab">電話番号</label>
-                <input type="tel" name="user_tel" id="user_tel">
+                <input type="tel" name="tel" id="user_tel">
             </div>
             <div class="c-infCard l-infCard">
                 <label for="uese_mes" class="l-infCard-lab l-infCard-lab-q">お問い合わせ内容<span
                         class="l-infCard-req">必須</span></label>
-                <textarea name="message" id="uese_mes" required></textarea>
+                <textarea name="body" id="uese_mes" required></textarea>
             </div>
             </div>
             <div class="c-contact__btn"><input type="submit" value="送信" class="l-infCard-btn" id="submit_btn"></div>
