@@ -17,15 +17,14 @@ if (!empty($_POST)) {
 
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            // if ($result) {
-            //     if (password_verify($password, $result['password'])) {
-            //         $_SESSION['id'] = $result['id'];
-            //         $_SESSION['name'] = $result['name'];
-            //         // $_SESSION['role'] = $result['role'];
-            //         header('location:index.php');
-            //         exit();
-            //     }
-            // }
+            if ($result) {
+                if (password_verify($password, $result['password'])) {
+                    $_SESSION['id'] = $result['id'];
+                    $_SESSION['name'] = $result['name'];
+                    header('location:index.php');
+                    exit();
+                }
+            }
             header('location:index.php');
             exit();
         } catch (PDOException $e) {
