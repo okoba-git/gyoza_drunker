@@ -48,7 +48,7 @@ function secure($s){
   <main class="l-wrapper">
     <h1 class="c-title c-mb__plus">お問い合わせ確認</h1>
     <div id="message-area"></div>
-    <form action="contact-add-do.php" method="post" class="l-inf-form">
+    <form action="./admin/contact/contact-add-do.php" method="post" class="l-inf-form">
       <div class="c-infCard l-infCard">
         <label class="l-infCard-lab">お名前</label>
         <p class="confirm-text"><?php echo secure($name); ?></p>
