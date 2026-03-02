@@ -43,7 +43,10 @@ try {
                     <td class="col-2"><?php echo $shop['shop_num']; ?></td>
                     <td class="col-9"><a href="shop-detail.php?id=<?php echo $shop['id']; ?>"><?php echo $shop['name']; ?></a></td>
                     <td class="col-1">
-                        <form><input type="submit" class="btn btn-danger" value="削除"></form>
+                        <form action="shop-delete-do.php" method="post">
+                            <input type="hidden" name="id" value="<?php echo $shop['id']; ?>">
+                            <input type="submit" class="btn btn-danger" value="削除">
+                        </form>
                     </td>
                 </tr>
             </tbody>
