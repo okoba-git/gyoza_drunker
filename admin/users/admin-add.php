@@ -1,14 +1,6 @@
 <?php
 require_once __DIR__ . ('/../../inc/config.php');
 require_once __DIR__ . ('/../../inc/function.php');
-// DBに接続
-
-// 役割配列
-// $roles = [
-//   1 => '管理者',
-//   2 => '一般',
-// ];
-
 ?>
 <!doctype html>
 <html lang="ja">
@@ -20,15 +12,12 @@ require_once __DIR__ . ('/../../inc/function.php');
 </head>
 
 <body>
-
     <?php
     require_once __DIR__ . ('/../inc/header.php');
     ?>
 
     <main role="main" class="container" style="padding:60px 15px 0">
         <div>
-            <!-- ここから「本文」-->
-
             <h1 class="my-5">管理者ユーザー - 追加</h1>
 
             <form action="user_add_do.php" method="post">
@@ -37,27 +26,14 @@ require_once __DIR__ . ('/../../inc/function.php');
                     <input type="text" name="name" id="name" class="form-control">
                 </div>
 
-                <div class="mb-3 col">
+                <div class="mb-5 col">
                     <label for="password" class="form-label">パスワード</label>
                     <input type="password" name="password" id="password" class="form-control">
                 </div>
 
-                <div class="mb-3">
-                    <p class="form-label">役割</p>
-                    <?php
-                    // $roles(役割配列)を使ってラジオボタンを表示
-                    foreach ($roles as $key => $name):
-                    ?>
-                        <div class="form-check form-check-inline">
-                            <input type="radio" name="role" id="role<?php echo $key; ?>" value="<?php echo $key; ?>" class="form-check-input" <?php echo $key === 2 ? 'checked' : ''; ?>>
-                            <label for="role<?php echo $key; ?>" class="form-check-label"><?php echo $name; ?></label>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-
-                <div class="row">
-                    <div class="mb-3">
-                        <input type="submit" value="完了" class="btn btn-primary">
+                <div class="d-flex flex-row gap-2">
+                    <div>
+                        <input type="submit" value="追加" class="btn btn-primary">
                     </div>
                     <div>
                         <input type="submit" value="キャンセル" class="btn btn-primary">
@@ -65,7 +41,6 @@ require_once __DIR__ . ('/../../inc/function.php');
                 </div>
             </form>
 
-            <!-- 本文ここまで -->
         </div>
     </main>
 
