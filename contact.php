@@ -1,3 +1,9 @@
+<?php
+session_start();
+$message = $_SESSION['res_message'] ?? '';
+unset($_SESSION['res_message']);
+$type =['danger', 'primary'];
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -34,7 +40,13 @@
     <?php require_once __DIR__ . '/inc/header.php'; ?>
     <main class="l-wrapper">
         <h1 class="c-title c-mb__plus">お問い合わせ</h1>
-        <div id="message-area"></div>
+        <div id="message-area">
+            <?php if ($message !== ''): ?>
+                <div class="alert alert-<?php echo $type[$message['type']]; ?> alert-dismissible" role="alert">
+                    <div><?php echo $message['msg']; ?></div>
+                </div>
+            <?php endif; ?>
+        </div>
         <form action="./contact-check.php" method="post" class="l-inf-form" id="contact_form">
             <div class="c-infCard l-infCard">
                 <label for="user_name" class="l-infCard-lab">お名前<span class="l-infCard-req">必須</span></label>
