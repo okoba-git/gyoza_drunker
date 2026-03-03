@@ -32,7 +32,7 @@ try {
     <ul>
         <li class="list-group-item"><a href="users/admin-list.php" class="nav-link">管理者一覧</a></li>
         <li class="list-group-item"><a href="news/news-list.php" class="nav-link">お知らせ一覧</a></li>
-        <li class="list-group-item"><a href="contact/contact-check.php" class="nav-link">お問い合わせ一覧</a></li>
+        <li class="list-group-item"><a href="contact/contact-list.php" class="nav-link">お問い合わせ一覧</a></li>
         <li class="list-group-item"><a href="shop/shop-list.php" class="nav-link">店舗一覧</a></li>
         <li class="list-group-item"><a href="faq/faq-list.php" class="nav-link">FAQカテゴリ</a></li>
     </ul>

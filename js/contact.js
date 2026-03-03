@@ -1,3 +1,5 @@
+import { messageArea, appendMessage } from "./message-area.js";
+
 // 各フォームオブジェクトを取得
 const form = document.getElementById('contact_form');
 const userName = document.getElementById('user_name');
@@ -5,24 +7,6 @@ const userEmail = document.getElementById('user_email');
 const userTel = document.getElementById('user_tel');
 const userMes = document.getElementById('uese_mes');
 const submitBtn = document.getElementById('submit_btn')
-
-// メッセージ
-const messageArea = document.getElementById('message-area');
-/**
- * メッセージ表示処理
- * @param {string} message 表示したいメッセージ内容
- * @param {string} type アラートの種類。bootstarapのカラー参照
- */
-const appendAlert = (message, type) => {
-  const wrapper = document.createElement('div')
-  wrapper.innerHTML = [
-    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-    `   <div>${message}</div>`,
-    '</div>'
-  ].join('')
-
-  messageArea.append(wrapper);
-}
 
 // フォームボタンのクリックイベント登録
 submitBtn.addEventListener('click', event => {
@@ -35,7 +19,7 @@ submitBtn.addEventListener('click', event => {
     form.submit();
   }else{ // 問題があればメッセージを表示
     errMes.forEach(message => {
-      appendAlert(message, 'danger');
+      appendMessage(message, 'danger');
     });
     // 画面上部に戻す
     window.scrollTo({top:0});
