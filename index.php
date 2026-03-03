@@ -119,6 +119,37 @@
             <div class="l-news-sec">
                 <h2 class="c-title c-top-title">お知らせ</h2>
                 <div class="c-news-content">
+                    <?php
+                    require_once __DIR__ . ('/inc/config.php');
+                    require_once __DIR__ . ('/inc/function.php');
+                    // DBに接続
+                    $db = db_connect();
+                    $sql = 'SELECT title,create_at FROM news ORDER BY create_at DESC';
+                    $stmt = $db->prepare($sql);
+                    $stmt->execute();
+                    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    ?>
+                    <!-- $result の先頭から5件だけを取り出す -->
+                    <?php $limited_news = array_slice($result, 0, 5); ?>
+                    <?php foreach ($limited_news as $news): ?>
+                        <dl class="c-news-detail">
+                            <dt class="c-news-date">
+                                <time datetime="<?php echo $news['create_at']; ?>">
+                                    <?php
+                                    $date = new DateTime($news['create_at']);
+                                    $week = ['日', '月', '火', '水', '木', '金', '土'];
+                                    $w = (int)$date->format('w');
+                                    echo $date->format('Y.n.j');
+                                    ?>
+                                </time>（<?php echo $week[$w]; ?>）
+                            </dt>
+                            <dd class="c-news-title">
+                                <a href="news-detail.php"><?php echo $news['title']; ?></a>
+                            </dd>
+                        </dl>
+                    <?php endforeach; ?>
+                </div>
+                <!-- <div class="c-news-content">
                     <dl class="c-news-detail">
                         <dt class="c-news-date">
                             <time datetime="2030-02-25">2030.2.25</time>（月）
@@ -151,7 +182,7 @@
                             <a href="#">ふくおか餃子FES開催決定！</a>
                         </dd>
                     </dl>
-                </div>
+                </div> -->
                 <div class="c-btn c-btn__black">
                     <a href="news.php">VIEW MORE</a>
                 </div>

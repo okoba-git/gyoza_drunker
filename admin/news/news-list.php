@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . ('/../../inc/config.php');
 require_once __DIR__ . ('/../../inc/function.php');
-$num = 50;
 // DBに接続
 $db = db_connect();
 $sql = 'SELECT title,create_at FROM news ORDER BY create_at DESC';

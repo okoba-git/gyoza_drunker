@@ -30,7 +30,6 @@
 
 <body>
     <?php require_once __DIR__ . '/inc/header.php'; ?>
-    <?php $num = 5; ?>
 
     <main class="l-wrapper">
 
@@ -39,6 +38,35 @@
 
         <div class="c-section">
             <div class="c-news-content c-news__other">
+                <?php
+                require_once __DIR__ . ('/inc/config.php');
+                require_once __DIR__ . ('/inc/function.php');
+                // DBに接続
+                $db = db_connect();
+                $sql = 'SELECT title,create_at FROM news ORDER BY create_at DESC';
+                $stmt = $db->prepare($sql);
+                $stmt->execute();
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                ?>
+                <?php foreach ($result as $news): ?>
+                    <dl class="c-news-detail">
+                        <dt class="c-news-date">
+                            <time datetime="<?php echo $news['create_at']; ?>">
+                                <?php
+                                $date = new DateTime($news['create_at']);
+                                $week = ['日', '月', '火', '水', '木', '金', '土'];
+                                $w = (int)$date->format('w');
+                                echo $date->format('Y.n.j');
+                                ?>
+                            </time>（<?php echo $week[$w]; ?>）
+                        </dt>
+                        <dd class="c-news-title">
+                            <a href="news-detail.php"><?php echo $news['title']; ?></a>
+                        </dd>
+                    </dl>
+                <?php endforeach; ?>
+            </div>
+            <!-- <div class="c-news-content c-news__other">
                 <dl class="c-news-detail">
                     <dt class="c-news-date">
                         <time datetime="2030-02-25">2030.2.25</time>（月）
@@ -73,7 +101,7 @@
                         <a href="#">ふくおか餃子FES開催決定！</a>
                     </dd>
                 </dl>
-            </div>
+            </div> -->
 
             <p class="c-btn-jump">
                 <a href="#top">TOP</a>
