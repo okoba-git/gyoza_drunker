@@ -31,7 +31,7 @@ session_start();
             <div class="mb-3 d-flex gap-5">
                 <div class="col">
                     <label for="create_at" class="form-label">作成日</label>
-                    <input type="date" name="create_at" id="create_at" class="form-control">
+                    <input type="datetime-local" name="create_at" id="create_at" class="form-control" required>
                 </div>
                 <div class="col">
                     <label for="author" class="form-label">作成者</label>
