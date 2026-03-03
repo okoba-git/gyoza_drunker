@@ -55,6 +55,16 @@ function debug_var_dump($array){
     echo '</pre>';
 }
 
+// 
+/**
+ * セキュリティ対策（XSS対策）のための関数
+ * 
+ * @param string $s 画面に表示したい文字列
+ */
+function secure($s){
+  return htmlspecialchars($s, ENT_QUOTES, "UTF-8");
+}
+
 /**
  * デバッグ用の処理
  * 
