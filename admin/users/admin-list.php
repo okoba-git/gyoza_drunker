@@ -37,47 +37,49 @@ try {
             <?php unset($_SESSION['success']); ?>
         <?php endif; ?>
 
+        <h1 class="my-5">管理者 - 一覧</h1>
+        <a class="mb-4 btn btn-primary btn-lg" href="admin-add.php">ユーザー新規登録</a>
 
-        <div>
-            <h1 class="my-5">管理者 - 一覧</h1>
-            <a class="mb-4 btn btn-info btn-lg text-white" href="admin-add.php">ユーザー新規登録</a>
-            <?php if (count($admins_array) > 0): ?>
-                <table class="table table-user">
-                    <thead>
+        <?php if (count($admins_array) > 0): ?>
+            <table class="table table-user">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>ユーザー名</th>
+                        <th>編集 / 削除</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <?php foreach ($admins_array as $user): ?>
                         <tr>
-                            <th>ID</th>
-                            <th>ユーザー名</th>
-                            <th>編集 / 削除</th>
+                            <td><?php echo $user['id']; ?></td>
+                            <td><?php echo $user['name']; ?></td>
+                            <td class="d-flex flex-row gap-2">
+                                <form action="admin-edit.php" method="post">
+                                    <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
+                                    <button type="submit" class="btn btn-info text-white">
+                                        編集
+                                    </button>
+                                </form>
+
+                                <form action="admin-del-do.php" method="post" onsubmit="return confirm('本当に削除してもよろしいですか?')">
+                                    <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
+                                    <button type="submit" class="btn btn-danger">
+                                        削除
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
-                    </thead>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <p>ユーザーは登録されていません。</p>
+        <?php endif; ?>
 
-                    <tbody>
-                        <?php foreach ($admins_array as $user): ?>
-                            <tr>
-                                <td><?php echo $user['id']; ?></td>
-                                <td><?php echo $user['name']; ?></td>
-                                <td class="d-flex flex-row gap-2">
-                                    <form action="admin-edit.php" method="post">
-                                        <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
-                                        <button type="submit" class="btn btn-primary">
-                                            編集
-                                        </button>
-                                    </form>
-
-                                    <form action="admin-del-do.php" method="post" onsubmit="return confirm('本当に削除してもよろしいですか?')">
-                                        <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
-                                        <button type="submit" class="btn btn-danger">
-                                            削除
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            <?php else: ?>
-                <p>ユーザーは登録されていません。</p>
-            <?php endif; ?>
+        <div class=" text-center">
+            <a href="../index.php" class="btn btn-primary mt-3">TOPに戻る</a>
         </div>
     </main>
 

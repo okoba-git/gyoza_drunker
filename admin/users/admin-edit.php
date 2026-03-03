@@ -35,24 +35,26 @@ try {
     ?>
 
     <main role="main" class="container" style="padding:60px 15px 0">
-        <div>
-            <h1 class="my-5">管理者ユーザー - 編集</h1>
-            <form action="admin-edit-do.php" method="post">
-                <div class="mb-3 col">
-                    <label for="name" class="form-label">ユーザー名</label>
-                    <input type="text" name="name" id="name" class="form-control" value="<?php echo $target['name']; ?>">
-                </div>
+        <h1 class="my-5">管理者ユーザー - 編集</h1>
+        <form action="admin-edit-do.php" method="post">
+            <div class="mb-3 col">
+                <label for="name" class="form-label">ユーザー名</label>
+                <input type="text" name="name" id="name" class="form-control" value="<?php echo $target['name']; ?>">
+            </div>
 
-                <div class="mb-5 col">
-                    <label for="password" class="form-label">パスワード</label>
-                    <input type="password" name="password" id="password" class="form-control">
-                </div>
+            <div class="mb-5 col">
+                <label for="password" class="form-label">パスワード</label>
+                <input type="password" name="password" id="password" class="form-control">
+            </div>
 
-                <div class="mb-3">
-                    <input type="hidden" name="id" value="<?php echo $target['id']; ?>">
-                    <input type="submit" value="変更する" class="btn btn-primary btn-lg" style="min-width:120px;">
-                </div>
-            </form>
+            <div class="mb-3">
+                <input type="hidden" name="id" value="<?php echo $target['id']; ?>">
+                <input type="submit" value="変更する" class="btn btn-info btn-lg text-white" style="min-width:120px;">
+            </div>
+        </form>
+
+        <div class=" text-center">
+            <a href="./admin-list.php" class="btn btn-primary mt-3">一覧画面に戻る</a>
         </div>
     </main>
 
