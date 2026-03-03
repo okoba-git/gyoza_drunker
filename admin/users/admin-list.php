@@ -2,6 +2,8 @@
 require_once __DIR__ . ('/../../inc/config.php');
 require_once __DIR__ . ('/../../inc/function.php');
 
+session_start();
+
 // DBに接続
 try {
     $db = db_connect();
@@ -30,6 +32,12 @@ try {
     ?>
 
     <main role="main" class="container" style="padding:60px 15px 0">
+        <?php if (!empty($_SESSION['success'])): ?>
+            <div class="alert alert-success">削除完了しました！</div>
+            <?php unset($_SESSION['success']); ?>
+        <?php endif; ?>
+
+
         <div>
             <h1 class="my-5">管理者 - 一覧</h1>
             <a class="mb-4 btn btn-info btn-lg text-white" href="admin-add.php">ユーザー新規登録</a>
@@ -51,11 +59,16 @@ try {
                                 <td class="d-flex flex-row gap-2">
                                     <form action="admin-edit.php" method="post">
                                         <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
-                                        <input type="submit" value="編集" class="btn btn-primary">
+                                        <button type="submit" class="btn btn-primary">
+                                            編集
+                                        </button>
                                     </form>
-                                    <form action="admin-del-do.php" method="post">
+
+                                    <form action="admin-del-do.php" method="post" onsubmit="return confirm('本当に削除してもよろしいですか?')">
                                         <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
-                                        <input type="submit" value="削除" class="btn btn-danger">
+                                        <button type="submit" class="btn btn-danger">
+                                            削除
+                                        </button>
                                     </form>
                                 </td>
                             </tr>
