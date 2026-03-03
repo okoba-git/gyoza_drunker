@@ -30,7 +30,7 @@ try {
 
     <h1 class="mb-5">トップページ</h1>
     <ul>
-        <li class="list-group-item"><a href="users/admin.php" class="nav-link">管理者一覧</a></li>
+        <li class="list-group-item"><a href="users/admin-list.php" class="nav-link">管理者一覧</a></li>
         <li class="list-group-item"><a href="news/news-list.php" class="nav-link">お知らせ一覧</a></li>
         <li class="list-group-item"><a href="contact/contact-check.php" class="nav-link">お問い合わせ一覧</a></li>
         <li class="list-group-item"><a href="shop/shop-list.php" class="nav-link">店舗一覧</a></li>
