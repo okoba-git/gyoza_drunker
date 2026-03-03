@@ -1,3 +1,46 @@
+<?php
+require_once __DIR__ . '/inc/function.php';
+
+try {
+    $db = db_connect();
+    // faqを取得
+    $sql = 'SELECT faq.question, faq.answer, faq.category
+        FROM faq JOIN faq_categories ON faq.category = faq_categories.id 
+        WHERE faq_categories.is_delete = 0 
+        ORDER BY faq_categories.sort_order ASC';
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $faq = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // faqカテゴリを取得
+    $sql = 'SELECT id, name FROM faq_categories WHERE is_delete = 0 ORDER BY sort_order ASC';
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    debug_log($e->getMessage());
+}
+
+// faqとカテゴリをまとめた配列を作成
+// 構造は以下
+// result[0] =>[
+//         'name' => 'カテゴリ名',
+//         'faq' => [
+//             'queston' => '質問文',
+//             'answer' => '回答文'
+//         ]
+//       ],
+//       [1] => [...],
+$result = [];
+foreach ($categories as $i => $category) {
+    $result[$i] = ['name' => $category['name']];
+    foreach ($faq as $item) {
+        if ($item['category'] === $category['id']) {
+            $result[$i]['faq'][] = $item;
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -29,91 +72,23 @@
 
 <body>
     <?php require_once __DIR__ . '/inc/header.php'; ?>
-
     <main class="l-wrapper">
-
         <h1 class="c-title">よくある質問</h1>
-        <section class="c-faq__come">
-            <h2 class="c-title__sub">ご来場について</h2>
-            <dl class="c-faqCard l-faqCard">
-
-                <dt>
-                    <span class="c-faqCard-q">Q</span>
-                    入場料はかかりますか？
-                </dt>
-                <dd>入場は無料です。どなたでもご自由にお楽しみいただけます。飲食の購入は各店舗でお支払いください。</dd>
-                <dt>
-                    <span class="c-faqCard-q">Q</span>開催時間を教えてください。
-                </dt>
-                <dd>平日は16:00~22:00、土日祝は11:00~22:00です。各日最終入場受付は21:00、ラストオーダーは21:15です。</dd>
-                <dt>
-                    <span class="c-faqCard-q">Q</span>雨天の場合も開催されますか？
-                </dt>
-                <dd>雨天決行ですが、荒天の場合は安全を考慮し中止となる場合があります。最新情報はSNSでお知らせします。</dd>
-                <dt>
-                    <span class="c-faqCard-q">Q</span>支払い方法を教えてください。
-                </dt>
-                <dd>現金のほか、主要な電子マネー・QRコード決済がご利用いただけます。</dd>
-            </dl>
-        </section>
-        <section class="c-faq__place">
-            <h2 class="c-title__sub">会場について</h2>
-            <dl class="c-faqCard l-faqCard">
-                <dt>
-                    <span class="c-faqCard-q">Q</span>喫煙所はありますか？
-                </dt>
-                <dd>会場内は全面禁煙ですが、敷地外に指定の喫煙エリアを設けています。スタッフの案内に従ってご利用ください。</dd>
-                <dt>
-                    <span class="c-faqCard-q">Q</span>授乳室やおむつ替えスペースはありますか？
-                </dt>
-                <dd>メインゲート付近に授乳室とおむつ替え台を設置しています。小さなお子様連れでも安心してご利用いただけます。</dd>
-                <dt>
-                    <span class="c-faqCard-q">Q</span>駐車場はありますか？
-                </dt>
-                <dd>専用駐車場はございません。公共交通機関のご利用をおすすめします。</dd>
-                <dt>
-                    <span class="c-faqCard-q">Q</span>ペットを連れて入場できますか？
-                </dt>
-                <dd>混雑が予想されるため、ペットの同伴はご遠慮ください。ただし補助犬は入場可能です。</dd>
-                <dt>
-                    <span class="c-faqCard-q">Q</span>ゴミはどうすればよいですか？
-                </dt>
-                <dd>会場内に分別ゴミ箱を設置しています。リサイクルにご協力をお願いします。</dd>
-            </dl>
-        </section>
-        <section class="c-faq__other">
-            <h2 class="c-title__sub">その他</h2>
-            <dl class="c-faqCard l-faqCard">
-                <dt>
-                    <span class="c-faqCard-q">Q</span>忘れ物をした場合はどうすればよいですか？
-                </dt>
-                <dd>会場本部でお預かりしています。イベント終了後は実行委員会までお問い合わせください。</dd>
-                <dt>
-                    <span class="c-faqCard-q">Q</span>トイレはどこにありますか？
-                </dt>
-                <dd>会場内に複数の仮設トイレを設置しています。</dd>
-                <dt>
-                    <span class="c-faqCard-q">Q</span>SNSで写真を投稿しても良いですか？
-                </dt>
-                <dd>大歓迎です！公式ハッシュタグ「#ふくおか餃子FES」をつけて投稿してください。</dd>
-                <dt>
-                    <span class="c-faqCard-q">Q</span>開催中止の場合はどうなりますか？
-                </dt>
-                <dd>安全を最優先に判断し、中止の場合は公式サイトとSNSでお知らせします。</dd>
-                <dt>
-                    <span class="c-faqCard-q">Q</span>問い合わせ先を教えてください。
-                </dt>
-                <dd class="l-faq-dd-last">「<a class="c-bb" href="./contact.php">お問い合わせ</a>」ページのフォームまたは事務局メール宛にご連絡ください。
-                </dd>
-            </dl>
-        </section>
+        <?php foreach ($result as $category): ?>
+            <section>
+                <h2 class="c-title__sub"><?php echo $category['name']; ?></h2>
+                <dl class="c-faqCard l-faqCard">
+                    <?php foreach ($category['faq'] as $faq): ?>
+                        <dt><span class="c-faqCard-q">Q</span><?php echo $faq['question']; ?></dt>
+                        <dd><?php echo $faq['answer']; ?></dd>
+                    <?php endforeach; ?>
+                </dl>
+            </section>
+        <?php endforeach; ?>
         <p class="c-btn-jump">
             <a href="#top">TOP</a>
         </p>
-
-
     </main>
-
     <?php require_once __DIR__ . '/inc/footer.php'; ?>
     <script src="./js/hamburger.js"></script>
 </body>
