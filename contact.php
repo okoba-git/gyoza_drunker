@@ -2,7 +2,7 @@
 session_start();
 $message = $_SESSION['res_message'] ?? '';
 unset($_SESSION['res_message']);
-$type =['danger', 'primary'];
+$type = ['danger', 'primary'];
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -74,8 +74,11 @@ $type =['danger', 'primary'];
     </main>
 
     <?php require_once __DIR__ . '/inc/footer.php'; ?>
+    <!-- Bootstrap Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
+    <script></script>
     <script src="./js/hamburger.js"></script>
-    <script src="./js/contact.js"></script>
+    <script src="./js/contact.js" type="module"></script>
 </body>
 
 </html>
