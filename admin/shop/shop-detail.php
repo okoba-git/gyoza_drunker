@@ -61,7 +61,12 @@ try {
 
 
     <h1>商品 - 一覧</h1>
-    <a href="menu-add.php" class="btn btn-primary">商品追加</a>
+    <form action="menu-add.php" method="get">
+        <input type="hidden" name="id" value="<?php echo $shop['id']; ?>">
+        <button type="submit" class="btn btn-primary">
+            商品追加
+        </button>
+    </form>
     <table class="table">
         <?php foreach ($menu as $item) : ?>
             <tr>
