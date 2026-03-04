@@ -5,23 +5,8 @@ require_once __DIR__ . '/../../inc/function.php';
 $contacts = [];
 $status = [];
 try {
-  $db = db_connect();
-  // faqを取得
-  $sql = 'SELECT
-          faq.id,
-          faq.question, 
-          faq.answer,
-          faq.category as category_id,
-          faq_categories.name as category_name,
-          faq.create_at,
-          faq.update_at
-          FROM faq JOIN faq_categories ON faq.category = faq_categories.id 
-          WHERE faq_categories.is_delete = 0 ';
-  $stmt = $db->prepare($sql);
-  $stmt->execute();
-  $faq_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
   // faqカテゴリを取得
+  $db = db_connect();
   $sql = 'SELECT id, name FROM faq_categories WHERE is_delete = 0 ORDER BY sort_order ASC';
   $stmt = $db->prepare($sql);
   $stmt->execute();
@@ -71,29 +56,16 @@ try {
         <thead>
           <tr>
             <th class="col">id</th>
-            <th class="col">question</th>
-            <th class="col">answer</th>
-            <th class="col">category</th>
+            <th class="col">質問</th>
+            <th class="col">解答</th>
+            <th class="col">カテゴリー</th>
             <th class="col">create_at</th>
             <th class="col">update_at</th>
             <th class="col text-center">操作</th>
           </tr>
         </thead>
-        <tbody id="contact_tbody">
+        <tbody id="contact-tbody">
           <!-- 一覧をテーブルで表示 -->
-          <?php foreach ($faq_list as $faq): ?>
-            <tr>
-              <td class="col"><?php echo $faq['id']; ?></td>
-              <td class="col-3"><?php echo $faq['question']; ?></td>
-              <td class="col-4"><?php echo secure($faq['answer']); ?></td>
-              <td class="col-2"><?php echo $faq['category_name']; ?></td>
-              <td class="col"><?php echo $faq['create_at']; ?></td>
-              <td class="col update-at-column"><?php echo $faq['update_at']; ?></td>
-              <td class="col-1 text-center align-middle">
-                <a href=".faq-detail.php?id=<?php echo $faq['id']; ?>" class="btn btn-sm btn-primary">詳細</a>
-              </td>
-            </tr>
-          <?php endforeach; ?>
         </tbody>
       </table>
     </div>
@@ -102,7 +74,7 @@ try {
   <!-- Bootstrap Javascript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
   <script></script>
-  <script src="../../js/change-contact-state.js" type="module"></script>
+  <script src="../../js/faq-list.js" type="module"></script>
 </body>
 
 </html>
