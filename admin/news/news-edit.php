@@ -38,16 +38,9 @@ try {
         <h1 class="my-5">お知らせ - 編集</h1>
 
         <form action="news-edit-do.php" method="post">
-            <div class="mb-3 d-flex gap-5">
-                <div class="col">
-                    <label for="update_at" class="form-label">更新日</label>
-                    <input type="datetime-local" name="update_at" id="update_at" value="<?php echo $target['update_at']; ?>" class="form-control" required>
-                </div>
-
-                <div class="col">
-                    <label for="author" class="form-label">作成者</label>
-                    <input type="text" name="author" id="author" value="<?php echo $target['author']; ?>" class="form-control" required>
-                </div>
+            <div class="col">
+                <label for="author" class="form-label">作成者</label>
+                <input type="text" name="author" id="author" value="<?php echo $target['author']; ?>" class="form-control" required>
             </div>
 
             <div class="mb-3 col">
@@ -63,14 +56,17 @@ try {
             </div>
 
             <div class="d-flex flex-row gap-2">
-                <input type="submit" value="更新" class="btn btn-info btn-lg text-white" style="min-width:120px;">
+                <input type="hidden" name="id" value="<?php echo $target['id']; ?>">
+                <button type="submit" class="btn btn-info text-white" style="min-width:120px;">
+                    更新する
+                </button>
 
-                <a class="btn btn-info btn-lg text-white" href="news-add.php" style="min-width:120px;">キャンセル</a>
+                <a class="btn btn-info btn-lg text-white" href="news-detail.php?id=<?php echo $target['id']; ?>" style=" min-width:120px;">キャンセル</a>
             </div>
         </form>
 
         <div class=" text-center">
-            <a href="./admin-list.php" class="btn btn-primary mt-3">お知らせ一覧に戻る</a>
+            <a href="news-detail.php?id=<?php echo $target['id']; ?>" class="btn btn-primary mt-3">お知らせ詳細に戻る</a>
         </div>
     </main>
 

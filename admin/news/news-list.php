@@ -2,6 +2,8 @@
 require_once __DIR__ . ('/../../inc/config.php');
 require_once __DIR__ . ('/../../inc/function.php');
 
+session_start();
+
 // DBに接続
 $db = db_connect();
 $sql = 'SELECT * FROM news ORDER BY create_at DESC';
@@ -27,6 +29,10 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php
     require_once __DIR__ .  '/../inc/header.php';
     ?>
+    <?php if (!empty($_SESSION['success'])): ?>
+        <div class="alert alert-success">削除完了しました！</div>
+        <?php unset($_SESSION['success']); ?>
+    <?php endif; ?>
 
     <h1 class="c-title">お知らせ - 一覧</h1>
 
