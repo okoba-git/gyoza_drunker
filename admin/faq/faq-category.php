@@ -71,7 +71,7 @@ $type = ['danger', 'primary'];
               <td class="col"><?php echo $category['update_at']; ?></td>
               <td class="col">
                 <div class="d-flex gap-1 justify-content-center align-item-center">
-                  <a href=".category-edit.php?id=<?php echo $category['id']; ?>" class="btn btn-sm btn-primary">編集</a>
+                  <a href="category-edit.php?id=<?php echo $category['id']; ?>" class="btn btn-sm btn-primary">編集</a>
                   <form action="./category-delete-do.php" method="post" onsubmit="return confirm('本当に削除してもよろしいですか?')">
                     <input type="hidden" name="id" value="<?php echo $category['id']; ?>">
                     <button type="submit" class="btn btn-sm btn-danger">削除</button>
