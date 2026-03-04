@@ -44,9 +44,9 @@ function get_display_menu_data($product_id = 0)
 }
 
 /**
- * faqデータ取得関数
+ * faq取得関数
  * 
- * faq一覧ようのデータをDBから取得する関数。
+ * faq一覧をDBから取得する関数。
  * 引数にfaqIDを渡したときは対象faqのみ、それ以外の場合はすべてのfaqを返す。
  * faq_idのみ入力渡したい場合は第一引数に0を渡す
  * 
@@ -79,6 +79,33 @@ function get_faq_data($category_id = 0, $faq_id = 0)
     }
     $stmt->execute();
     return $faq_id !== 0 ? $stmt->fetch(PDO::FETCH_ASSOC) : $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+/**
+ * faqカテゴリー取得関数
+ * 
+ * @param int $id 取得したいfaqカテゴリーID。入力無しまたは0ですべて。
+ * @param bool $is_get_delete 論理削除済みのカテゴリーを取得するかどうか。falseで取得しない。
+ * @return 連想配列 idを渡した場合はfetch(PDO::FETCH_ASSOC)、無しの場合はfetchAll(PDO::FETCH_ASSOC)を返す。
+ */
+function get_faq_category_data($id = 0, $is_get_delete = true)
+{
+    $db = db_connect();
+    $wher = [];
+    $wher[] = 'WHERE 1';
+    $wher[] = $id === 0 ? '' : 'AND id = :id';
+    $wher[] = $is_get_delete ? '' : 'AND is_delete = 0';
+    $sql = [
+        'SELECT id, name, is_delete, create_at, update_at FROM faq_categories',
+        implode(' ', $wher),
+        'ORDER BY sort_order ASC'
+    ];
+    $stmt = $db->prepare(implode(' ', $sql));
+    if ($id !== 0) {
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    }
+    $stmt->execute();
+    return $id !== 0 ? $stmt->fetch(PDO::FETCH_ASSOC) : $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 /**

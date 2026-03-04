@@ -6,11 +6,7 @@ $contacts = [];
 $status = [];
 try {
   // faqカテゴリを取得
-  $db = db_connect();
-  $sql = 'SELECT id, name FROM faq_categories WHERE is_delete = 0 ORDER BY sort_order ASC';
-  $stmt = $db->prepare($sql);
-  $stmt->execute();
-  $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $categories = get_faq_category_data(0, false);
 } catch (PDOException $e) {
   debug_log($e->getMessage());
 }
@@ -46,7 +42,7 @@ try {
               <?php endforeach; ?>
             </select>
           </div>
-          <a href="./faq-category-list.php" class="btn btn-primary text-nowrap mt-2 mt-sm-0" id="category-list-btn">
+          <a href="./faq-category.php" class="btn btn-primary text-nowrap mt-2 mt-sm-0" id="category-list-btn">
             カテゴリー一覧へ
           </a>
         </div>
