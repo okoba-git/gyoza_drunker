@@ -1,3 +1,14 @@
+<?php
+require_once __DIR__ . ('/inc/config.php');
+require_once __DIR__ . ('/inc/function.php');
+// DBに接続
+$db = db_connect();
+$sql = 'SELECT id,title,create_at FROM news ORDER BY create_at DESC';
+$stmt = $db->prepare($sql);
+$stmt->execute();
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -38,16 +49,6 @@
 
         <div class="c-section">
             <div class="c-news-content c-news__other">
-                <?php
-                require_once __DIR__ . ('/inc/config.php');
-                require_once __DIR__ . ('/inc/function.php');
-                // DBに接続
-                $db = db_connect();
-                $sql = 'SELECT title,create_at FROM news ORDER BY create_at DESC';
-                $stmt = $db->prepare($sql);
-                $stmt->execute();
-                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                ?>
                 <?php foreach ($result as $news): ?>
                     <dl class="c-news-detail">
                         <dt class="c-news-date">
@@ -61,48 +62,11 @@
                             </time>（<?php echo $week[$w]; ?>）
                         </dt>
                         <dd class="c-news-title">
-                            <a href="news-detail.php"><?php echo $news['title']; ?></a>
+                            <a href="news-detail.php?id=<?php echo $news['id']; ?>"><?php echo $news['title']; ?></a>
                         </dd>
                     </dl>
                 <?php endforeach; ?>
             </div>
-            <!-- <div class="c-news-content c-news__other">
-                <dl class="c-news-detail">
-                    <dt class="c-news-date">
-                        <time datetime="2030-02-25">2030.2.25</time>（月）
-                    </dt>
-                    <dd class="c-news-title">
-                        <a href="#">出店者インタビュー　博多区で人気の「博多ぎょうざ堂」</a>
-                    </dd>
-                </dl>
-                <dl class="c-news-detail">
-                    <dt class="c-news-date">
-                        <time datetime="2030-02-23">2030.2.23</time>（土）
-                    </dt>
-                    <dd class="c-news-title">
-                        <a href="#">出店企業様決定！</a>
-                    </dd>
-                </dl>
-
-                <dl class="c-news-detail">
-                    <dt class="c-news-date">
-                        <time datetime="2030-02-16">2030.2.16</time>（土）
-                    </dt>
-                    <dd class="c-news-title">
-                        <a href="news-detail.php">出店企業様大募集中！</a>
-                    </dd>
-                </dl>
-
-                <dl class="c-news-detail">
-                    <dt class="c-news-date">
-                        <time datetime="2030-02-16">2030.2.16</time>（土）
-                    </dt>
-                    <dd class="c-news-title">
-                        <a href="#">ふくおか餃子FES開催決定！</a>
-                    </dd>
-                </dl>
-            </div> -->
-
             <p class="c-btn-jump">
                 <a href="#top">TOP</a>
             </p>
