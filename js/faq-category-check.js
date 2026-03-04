@@ -30,7 +30,7 @@ submit.addEventListener('click', async event => {
     // ソート番号がすでにあるので登録するか確認
     if (window.confirm('入力した表示順は既に使用されています。順番を入れ替えて登録しますか?')) {
       // 変更phpを呼び出す
-      const updateJson = await updateSortOrder(updateJson.id, num);
+      const updateJson = await updateSortOrder(checkJson.id);
       // 問題があればメッセージを表示する
       if (updateJson.status !== 200) {
         jsonErrorMessage(updateJson);
@@ -71,9 +71,9 @@ async function checkAvailable(sortOrder) {
  * @param {int} sortOrder 
  * @returns 
  */
-async function updateSortOrder(id, sortOrder) {
+async function updateSortOrder(id) {
   // 呼び出しファイルからのパスを指定
-  const response = await fetch(`./faq-category-update-do.php?id=${id},sort_order=${sortOrder}`);
+  const response = await fetch(`./faq-category-update-do.php?id=${id}`);
   // レスポンス失敗時
   if (!response.ok) {
     return {
