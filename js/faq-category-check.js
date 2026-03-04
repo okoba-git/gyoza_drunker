@@ -55,7 +55,7 @@ submit.addEventListener('click', async event => {
  */
 async function checkAvailable(sortOrder) {
   // 呼び出しファイルからのパスを指定
-  const response = await fetch(`./faq-category-check-do.php?sort_order=${sortOrder}`);
+  const response = await fetch(`./category-check-do.php?sort_order=${sortOrder}`);
   // レスポンス失敗時
   if (!response.ok) {
 
@@ -76,7 +76,7 @@ async function checkAvailable(sortOrder) {
  */
 async function updateSortOrder(id) {
   // 呼び出しファイルからのパスを指定
-  const response = await fetch(`./faq-category-update-do.php?id=${id}`);
+  const response = await fetch(`./category-update-do.php?id=${id}`);
   // レスポンス失敗時
   if (!response.ok) {
     return {

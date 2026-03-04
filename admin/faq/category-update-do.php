@@ -19,6 +19,7 @@ try {
   $next = get_next_sort_order();
 
   // 同じソート番号を持つカテゴリのソート番号を更新
+  $db = db_connect();
   $sql = 'UPDATE faq_categories SET sort_order = :sort_order WHERE id = :id';
   $stmt = $db->prepare($sql);
   $stmt->bindParam(':id', $id, PDO::PARAM_INT);
