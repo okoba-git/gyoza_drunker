@@ -1,3 +1,14 @@
+<?php
+require_once __DIR__ . ('/inc/config.php');
+require_once __DIR__ . ('/inc/function.php');
+// DBに接続
+$db = db_connect();
+$sql = 'SELECT id,title,create_at FROM news ORDER BY create_at DESC';
+$stmt = $db->prepare($sql);
+$stmt->execute();
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -119,16 +130,6 @@
             <div class="l-news-sec">
                 <h2 class="c-title c-top-title">お知らせ</h2>
                 <div class="c-news-content">
-                    <?php
-                    require_once __DIR__ . ('/inc/config.php');
-                    require_once __DIR__ . ('/inc/function.php');
-                    // DBに接続
-                    $db = db_connect();
-                    $sql = 'SELECT title,create_at FROM news ORDER BY create_at DESC';
-                    $stmt = $db->prepare($sql);
-                    $stmt->execute();
-                    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    ?>
                     <!-- $result の先頭から5件だけを取り出す -->
                     <?php $limited_news = array_slice($result, 0, 5); ?>
                     <?php foreach ($limited_news as $news): ?>
@@ -144,45 +145,11 @@
                                 </time>（<?php echo $week[$w]; ?>）
                             </dt>
                             <dd class="c-news-title">
-                                <a href="news-detail.php"><?php echo $news['title']; ?></a>
+                                <a href="news-detail.php?id=<?php echo $news['id']; ?>"><?php echo $news['title']; ?></a>
                             </dd>
                         </dl>
                     <?php endforeach; ?>
                 </div>
-                <!-- <div class="c-news-content">
-                    <dl class="c-news-detail">
-                        <dt class="c-news-date">
-                            <time datetime="2030-02-25">2030.2.25</time>（月）
-                        </dt>
-                        <dd class="c-news-title">
-                            <a href="#">出店者インタビュー　博多区で人気の「博多ぎょうざ堂」</a>
-                        </dd>
-                    </dl>
-                    <dl class="c-news-detail">
-                        <dt class="c-news-date">
-                            <time datetime="2030-02-23">2030.2.23</time>（土）
-                        </dt>
-                        <dd class="c-news-title">
-                            <a href="#">出店企業様決定！</a>
-                        </dd>
-                    </dl>
-                    <dl class="c-news-detail">
-                        <dt class="c-news-date">
-                            <time datetime="2030-02-16">2030.2.16</time>（土）
-                        </dt>
-                        <dd class="c-news-title">
-                            <a href="news-detail.php">出店企業様大募集中！</a>
-                        </dd>
-                    </dl>
-                    <dl class="c-news-detail">
-                        <dt class="c-news-date">
-                            <time datetime="2030-02-16">2030.2.16</time>（土）
-                        </dt>
-                        <dd class="c-news-title">
-                            <a href="#">ふくおか餃子FES開催決定！</a>
-                        </dd>
-                    </dl>
-                </div> -->
                 <div class="c-btn c-btn__black">
                     <a href="news.php">VIEW MORE</a>
                 </div>
