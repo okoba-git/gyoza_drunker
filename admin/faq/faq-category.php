@@ -30,6 +30,14 @@ try {
     <div class="l-wrapper">
       <h1 class="my-5 text-center">FAQカテゴリー - 一覧</h1>
       <div id="message-area"></div>
+      <!-- 追加ボタン -->
+      <div class="container my-3">
+        <div class="d-sm-flex justify-content-end align-items-center">
+          <a href="./category-add.php" class="btn btn-primary text-nowrap mt-2 mt-sm-0" id="category-list-btn">
+            カテゴリーを追加
+          </a>
+        </div>
+      </div>
       <!-- faqリスト -->
       <table class="table table-bordered">
         <thead>
@@ -67,8 +75,9 @@ try {
           <?php endforeach; ?>
         </tbody>
       </table>
-
-      <a href="./faq-list.php" class="btn btn-primary mb-5">FAQ一覧に戻る</a>
+      <div class="d-flex justify-content-center">
+        <a href="./faq-list.php" class="btn btn-primary mb-5">FAQ一覧に戻る</a>
+      </div>
     </div>
   </main>
 
