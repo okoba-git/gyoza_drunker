@@ -61,7 +61,7 @@ try {
                     更新する
                 </button>
 
-                <a class="btn btn-info btn-lg text-white" href="news-add.php" style="min-width:120px;">キャンセル</a>
+                <a class="btn btn-info btn-lg text-white" href="news-detail.php?id=<?php echo $target['id']; ?>" style=" min-width:120px;">キャンセル</a>
             </div>
         </form>
 
