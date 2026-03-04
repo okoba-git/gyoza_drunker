@@ -6,8 +6,25 @@ session_start();
 
 // DBに接続
 // ID取得とバリデーション
-$id = (int)$_GET['id'];
+try {
+    $id = $_GET['id'];
+    $db = db_connect();
+    // 店舗情報取得
+    $sql = 'SELECT * FROM shops WHERE id = :id';
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+    $shop = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    // 商品情報取得
+    $sql2 = 'SELECT name,id FROM products WHERE id= :id';
+    $stmt2 = $db->prepare($sql2);
+    $stmt2->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt2->execute();
+    $menu = $stmt2->fetchALL(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    $e->getMessage();
+}
 ?>
 
 <!doctype html>
@@ -80,7 +97,7 @@ $id = (int)$_GET['id'];
         </form>
 
         <div class=" text-center">
-            <a href="./shop-detail.php?id=<?php  ?>" class="btn btn-primary mt-3">お知らせ一覧に戻る</a>
+            <a href="./shop-detail.php?id=<?php echo $shop['id']; ?>" class="btn btn-primary mt-3">店舗詳細に戻る</a>
         </div>
     </main>
 
