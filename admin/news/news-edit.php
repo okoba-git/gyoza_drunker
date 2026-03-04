@@ -4,7 +4,7 @@ require_once __DIR__ . ('/../../inc/function.php');
 
 // DBに接続
 // ID取得とバリデーション
-$id = (int)$_GET['id'];
+$id = (int)$_POST['id'];
 
 // DB接続
 try {
@@ -70,7 +70,7 @@ try {
         </form>
 
         <div class=" text-center">
-            <a href="./news-detail.php" class="btn btn-primary mt-3">お知らせ詳細に戻る</a>
+            <a href="./admin-list.php" class="btn btn-primary mt-3">お知らせ一覧に戻る</a>
         </div>
     </main>
 
