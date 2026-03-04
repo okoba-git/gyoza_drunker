@@ -10,7 +10,7 @@ submit.addEventListener('click', async event => {
   const num = parseInt(sortOrder.value);
   // 入力された値が数値じゃない時
   if (!Number.isInteger(num)) {
-    appendMessage('表示順は整数を入力してください。', 'danger');
+    appendMessage('ソート番号は整数を入力してください。', 'danger');
     return;
   }
 
@@ -31,7 +31,7 @@ submit.addEventListener('click', async event => {
     form.submit();
   } else {
     // ソート番号がすでにあるので登録するか確認
-    if (window.confirm('入力した表示順は既に使用されています。順番を入れ替えて登録しますか?')) {
+    if (window.confirm('入力したソート番号は既に使用されています。順番を入れ替えて登録しますか?')) {
       // 変更phpを呼び出す
       const updateJson = await updateSortOrder(checkJson.id);
       // 問題があればメッセージを表示する

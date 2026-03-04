@@ -139,7 +139,7 @@ function get_next_sort_order()
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $max_num = $stmt->fetch(PDO::FETCH_COLUMN);
-    return $max_num ? 1 : $max_num + 1;
+    return $max_num ? $max_num + 1 : 1;
 }
 
 /**

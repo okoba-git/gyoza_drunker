@@ -51,7 +51,7 @@ $type = ['danger', 'primary'];
           <tr>
             <th class="col">id</th>
             <th class="col-4">カテゴリー</th>
-            <th class="col">ソート順</th>
+            <th class="col">ソート番号</th>
             <th class="col">状態</th>
             <th class="col">create_at</th>
             <th class="col">update_at</th>
