@@ -1,7 +1,8 @@
 import { messageArea, appendMessage, jsonErrorMessage } from "./message-area.js";
 
+const form = document.getElementById('category-form');
 const sortOrder = document.getElementById('sort_order');
-const submit = document.getElementById('submit');
+const submit = document.getElementById('btn-submit');
 
 submit.addEventListener('click', async event => {
   event.preventDefault();
@@ -22,9 +23,11 @@ submit.addEventListener('click', async event => {
     jsonErrorMessage(checkJson);
     return;
   }
-
+  console.log('test');
+  
   if (!checkJson.isAvailable) {
     // ソート番号がまだないのでそのまま登録
+    console.log('test');
     form.submit();
   } else {
     // ソート番号がすでにあるので登録するか確認

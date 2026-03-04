@@ -1,9 +1,3 @@
-<?php
-require_once __DIR__ . '/../../inc/function.php';
-
-
-?>
-
 <!doctype html>
 <html lang="ja">
 
@@ -22,7 +16,7 @@ require_once __DIR__ . '/../../inc/function.php';
     <div class="l-wrapper">
       <h1 class="my-5 text-center">FAQカテゴリー - 追加</h1>
       <div id="message-area"></div>
-      <form action="admin-add-do.php" method="post" class="mb-5">
+      <form action="category-add-do.php" method="post" class="mb-5" id="category-form">
         <div class="col-5 mb-3">
           <label for="name" class="form-label">カテゴリー名</label>
           <input type="text" name="name" id="name" class="form-control">
@@ -32,7 +26,7 @@ require_once __DIR__ . '/../../inc/function.php';
           <input type="number" name="sort_order" id="sort_order" class="form-control">
         </div>
         <div class="d-flex flex-row gap-2">
-          <input type="submit" value="追加" class="btn btn-info btn-lg text-white" style="min-width:120px;" id="submit">
+          <input type="submit" value="追加" class="btn btn-info btn-lg text-white" style="min-width:120px;" id="btn-submit">
           <a class="btn btn-secondary btn-lg text-white" href="./faq-category.php" style="min-width:120px;">キャンセル</a>
         </div>
       </form>

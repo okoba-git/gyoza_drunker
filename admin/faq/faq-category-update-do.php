@@ -27,7 +27,7 @@ try {
   $sql = 'UPDATE faq_categories SET sort_order = :sort_order WHERE id = :id';
   $stmt = $db->prepare($sql);
   $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-  $stmt->bindParam(':sort_order', $sort_order, PDO::PARAM_INT);
+  $stmt->bindParam(':sort_order', $max_num, PDO::PARAM_INT);
   $stmt->execute();
 
   $json = [
