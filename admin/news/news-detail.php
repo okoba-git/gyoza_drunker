@@ -35,7 +35,7 @@ try {
 
         <div class="d-flex flex-row gap-2 mb-3">
             <form action="news-edit.php" method="post">
-                <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
+                <input type="hidden" name="id" value="<?php echo $news['id']; ?>">
                 <button type="submit" class="btn btn-info text-white">
                     編集
                 </button>
