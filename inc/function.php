@@ -114,7 +114,8 @@ function get_faq_category_data($id = 0, $is_get_delete = true)
  * @param int $sort_order 検索したいソート番号
  * @return int FAQカテゴリーID。一致しなければ0を返す。
  */
-function find_match_sort_order($sort_order){
+function find_match_sort_order($sort_order)
+{
     $db = db_connect();
     // faqを取得
     $sql = 'SELECT id FROM faq_categories WHERE sort_order = :sort_order';
@@ -123,6 +124,22 @@ function find_match_sort_order($sort_order){
     $stmt->execute();
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     return $result ? $result['id'] : 0;
+}
+
+/**
+ * 一番大きいソート番号の次の番号を取得
+ * 
+ * @return int FAQカテゴリーテーブルのソート番号で一番大きいもの次の値を取得
+ */
+function get_next_sort_order()
+{
+    // 一番大きいソート番号をインクリメントしたものを取得取得
+    $db = db_connect();
+    $sql = 'SELECT sort_order FROM faq_categories ORDER BY sort_order DESC LIMIT 1';
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $max_num = $stmt->fetch(PDO::FETCH_COLUMN);
+    return $max_num ? 1 : $max_num + 1;
 }
 
 /**

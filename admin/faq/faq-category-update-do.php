@@ -16,23 +16,18 @@ if ($id === '') {
 }
 
 try {
-  // 一番大きいソート番号をインクリメントしたものを取得取得
-  $db = db_connect();
-  $sql = 'SELECT sort_order FROM faq_categories ORDER BY sort_order DESC LIMIT 1';
-  $stmt = $db->prepare($sql);
-  $stmt->execute();
-  $max_num = $stmt->fetch(PDO::FETCH_COLUMN) + 1;
+  $next = get_next_sort_order();
 
   // 同じソート番号を持つカテゴリのソート番号を更新
   $sql = 'UPDATE faq_categories SET sort_order = :sort_order WHERE id = :id';
   $stmt = $db->prepare($sql);
   $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-  $stmt->bindParam(':sort_order', $max_num, PDO::PARAM_INT);
+  $stmt->bindParam(':sort_order', $next, PDO::PARAM_INT);
   $stmt->execute();
 
   $json = [
     'status' => 200,
-    'message' => 'ID:' . $id . 'のソート番号を' . $max_num . 'に変更しました。',
+    'message' => 'ID:' . $id . 'のソート番号を' . $next . 'に変更しました。',
   ];
 } catch (PDOException $e) {
   $json = [
