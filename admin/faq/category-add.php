@@ -22,7 +22,6 @@ require_once __DIR__ . '/../../inc/function.php';
     <div class="l-wrapper">
       <h1 class="my-5 text-center">FAQカテゴリー - 追加</h1>
       <div id="message-area"></div>
-
       <form action="admin-add-do.php" method="post" class="mb-5">
         <div class="col-5 mb-3">
           <label for="name" class="form-label">カテゴリー名</label>
