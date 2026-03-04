@@ -1,3 +1,15 @@
+<?php
+    require_once __DIR__ . '/inc/function.php';
+    require_once __DIR__ . '/inc/config.php';
+
+    $news_id = (int)$_GET['id'];
+    try {
+        $news = get_display_news_data($news_id);
+    } catch (PDOException $e) {
+        debug_log($e->getMessage());
+    }
+    ?>
+    
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -29,17 +41,7 @@
 
 <body>
     <?php require_once __DIR__ . '/inc/header.php'; ?>
-    <?php
-    require_once __DIR__ . '/inc/function.php';
-    require_once __DIR__ . '/inc/config.php';
-
-    $news_id = (int)$_GET['id'];
-    try {
-        $news = get_display_news_data($news_id);
-    } catch (PDOException $e) {
-        debug_log($e->getMessage());
-    }
-    ?>
+    
     <main class="l-wrapper">
         <?php  ?>
 
