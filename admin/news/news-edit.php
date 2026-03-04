@@ -3,7 +3,7 @@ require_once __DIR__ . ('/../../inc/config.php');
 require_once __DIR__ . ('/../../inc/function.php');
 
 // DBに接続
-// TODO: ID取得とバリデーション
+// ID取得とバリデーション
 $id = (int)$_GET['id'];
 
 // DB接続
@@ -58,7 +58,7 @@ try {
             <div class="mb-5">
                 <label for="body" class="form-label">本文</label>
                 <textarea name="body" id="body" class="form-control" placeholder="お知らせの本文を入力してください。" style="min-height:200px;" required>
-                    <?php echo nl2br($target['body']); ?>
+                    <?php echo $target['body']; ?>
                 </textarea>
             </div>
 
@@ -70,7 +70,7 @@ try {
         </form>
 
         <div class=" text-center">
-            <a href="./admin-list.php" class="btn btn-primary mt-3">お知らせ一覧に戻る</a>
+            <a href="./news-detail.php" class="btn btn-primary mt-3">お知らせ詳細に戻る</a>
         </div>
     </main>
 
