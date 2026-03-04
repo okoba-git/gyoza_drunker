@@ -91,13 +91,13 @@ function get_faq_data($category_id = 0, $faq_id = 0)
 function get_faq_category_data($id = 0, $is_get_delete = true)
 {
     $db = db_connect();
-    $wher = [];
-    $wher[] = 'WHERE 1';
-    $wher[] = $id === 0 ? '' : 'AND id = :id';
-    $wher[] = $is_get_delete ? '' : 'AND is_delete = 0';
+    $where = [];
+    $where[] = 'WHERE 1';
+    $where[] = $id === 0 ? '' : 'AND id = :id';
+    $where[] = $is_get_delete ? '' : 'AND is_delete = 0';
     $sql = [
         'SELECT id, name, sort_order, is_delete, create_at, update_at FROM faq_categories',
-        implode(' ', $wher),
+        implode(' ', $where),
         'ORDER BY sort_order ASC'
     ];
     $stmt = $db->prepare(implode(' ', $sql));
@@ -106,6 +106,23 @@ function get_faq_category_data($id = 0, $is_get_delete = true)
     }
     $stmt->execute();
     return $id !== 0 ? $stmt->fetch(PDO::FETCH_ASSOC) : $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+/**
+ * FAQカテゴリーから同じソート番号を持つレコードのID取得関数
+ * 
+ * @param int $sort_order 検索したいソート番号
+ * @return int FAQカテゴリーID。一致しなければ0を返す。
+ */
+function find_match_sort_order($sort_order){
+    $db = db_connect();
+    // faqを取得
+    $sql = 'SELECT id FROM faq_categories WHERE sort_order = :sort_order';
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':sort_order', $sort_order, PDO::PARAM_INT);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result ? $result['id'] : 0;
 }
 
 /**
