@@ -31,6 +31,12 @@ try {
 <body class="l-wrapper">
     <?php require_once __DIR__ . ('/../inc/header.php'); ?>
     <div class="container my-5">
+
+        <?php if (!empty($_SESSION['success'])): ?>
+            <div class="alert alert-success">変更完了しました！</div>
+            <?php unset($_SESSION['success']); ?>
+        <?php endif; ?>
+
         <h1 class="mb-4">お知らせ - 詳細</h1>
 
         <div class="d-flex flex-row gap-2 mb-3">

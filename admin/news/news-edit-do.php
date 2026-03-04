@@ -5,12 +5,13 @@ require_once __DIR__ . ('/../../inc/function.php');
 // TODO: データ受け取り
 if (!empty($_POST)) {
     // POST送信されたとき
-    if (!empty($_POST['update_at']) && !empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['body']) && !empty($_POST['id'])) {
+    if (!empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['body']) && !empty($_POST['id'])) {
         // 必須項目チェック（空の場合）
-        $update_at = $_POST['update_at'];
         $author = $_POST['author'];
         $title = $_POST['title'];
         $body = $_POST['body'];
+        $id = (int)$_POST['id'];
+        $update_at = date('Y-m-d H:i:s');
 
         // DBに接続
         try {
@@ -22,13 +23,14 @@ if (!empty($_POST)) {
             $stmt->bindParam(':author', $author, PDO::PARAM_STR);
             $stmt->bindParam(':title', $title, PDO::PARAM_STR);
             $stmt->bindParam(':body', $body, PDO::PARAM_STR);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
 
             session_start();
             $_SESSION['success'] = true;
 
             // お知らせ編集へ画面遷移
-            header('location:news-edit.php');
+            header('location:news-detail.php?id=' . $id);
             exit();
         } catch (PDOException $e) {
             exit('エラー: ' . $e->getMessage());
