@@ -1,9 +1,6 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
 
-// お問い合わせとお問い合わせステータス用配列
-$contacts = [];
-$status = [];
 try {
   // faqカテゴリを取得
   $categories = get_faq_category_data(0, false);

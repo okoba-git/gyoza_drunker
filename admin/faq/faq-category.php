@@ -1,9 +1,6 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
 
-// お問い合わせとお問い合わせステータス用配列
-$contacts = [];
-$status = [];
 try {
   // faqカテゴリを取得
   $categories = get_faq_category_data();
@@ -75,7 +72,7 @@ try {
           <?php endforeach; ?>
         </tbody>
       </table>
-      <div class="d-flex justify-content-center">
+      <div class="text-center">
         <a href="./faq-list.php" class="btn btn-primary mb-5">FAQ一覧に戻る</a>
       </div>
     </div>
