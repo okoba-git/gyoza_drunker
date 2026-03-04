@@ -96,7 +96,7 @@ function get_faq_category_data($id = 0, $is_get_delete = true)
     $wher[] = $id === 0 ? '' : 'AND id = :id';
     $wher[] = $is_get_delete ? '' : 'AND is_delete = 0';
     $sql = [
-        'SELECT id, name, is_delete, create_at, update_at FROM faq_categories',
+        'SELECT id, name, sort_order, is_delete, create_at, update_at FROM faq_categories',
         implode(' ', $wher),
         'ORDER BY sort_order ASC'
     ];
