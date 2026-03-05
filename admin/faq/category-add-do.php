@@ -10,7 +10,7 @@ $json = [];
 // POST失敗時
 if ($name === '' || $sort_order === '') {
   $_SESSION['res_message'] = ['type' => 0, 'msg' => 'POSTの取得に失敗しました。'];
-  header('Location: ./faq-category.php');
+  header('Location: ./category-add.php');
   exit();
 }
 
@@ -24,8 +24,8 @@ try {
   $stmt->execute();
 
   $_SESSION['res_message'] = ['type' => 1, 'msg' => 'FAQカテゴリーに'. $name .'を登録しました。'];
+  header('Location: ./faq-category.php');
 } catch (PDOException $e) {
   $_SESSION['res_message'] = ['type' => 0, 'msg' => $e->getMessage()];
+  header('Location: ./category-add.php');
 }
-
-header('Location: ./faq-category.php');

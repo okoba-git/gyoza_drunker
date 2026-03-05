@@ -6,6 +6,11 @@ try{
 }catch (PDOException $e){
   debug_log($e->getMessage());
 }
+
+session_start();
+$message = $_SESSION['res_message'] ?? '';
+unset($_SESSION['res_message']);
+$type = ['danger', 'primary'];
 ?>
 <!doctype html>
 <html lang="ja">
@@ -24,7 +29,15 @@ try{
   <main class="container">
     <div class="l-wrapper">
       <h1 class="my-5 text-center">FAQカテゴリー - 編集</h1>
-      <div id="message-area"></div>
+      <!-- メッセージ -->
+      <div id="message-area">
+        <?php if ($message !== ''): ?>
+          <div class="alert alert-<?php echo $type[$message['type']]; ?> alert-dismissible" role="alert">
+            <div><?php echo $message['msg']; ?></div>
+          </div>
+        <?php endif; ?>
+      </div>
+      <!-- 入力フォーム -->
       <form action="category-edit-do.php" method="post" class="mb-5" id="category-form">
         <input type="hidden" name="id" value="<?php echo $id; ?>" id="faq-id">
         <div class="col-5 mb-3">
