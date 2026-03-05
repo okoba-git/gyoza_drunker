@@ -9,7 +9,7 @@ $category = isset($_POST['category']) ? (int)$_POST['category'] : '';
 $id = isset($_POST['id']) ? (int)$_POST['id'] : '';
 
 // POST失敗時
-if (!isAvailableMethodValue($question,$answer,$category)) {
+if (!isAvailableMethodValue($question,$answer,$category,$id)) {
   $_SESSION['res_message'] = ['type' => 0, 'msg' => 'POSTの取得に失敗したため、編集内容が登録できませんでした。'];
   header('Location: ./faq-edit.php?id='.$id);
   exit();

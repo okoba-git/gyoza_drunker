@@ -7,7 +7,7 @@ $type = ['danger', 'primary'];
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : '';
 if (!isAvailableMethodValue($id)) {
-  $_SESSION['res_message'] = ['type' => 0, 'msg' => 'GETの取得に失敗しました。'];
+  $_SESSION['res_message'] = ['type' => 0, 'msg' => 'GETの取得に失敗したため、詳細ページの表示に失敗しました。'];
   header('Location: ./faq-list.php');
   exit();
 }
@@ -46,7 +46,10 @@ try {
       <!-- 表示 -->
       <div class="d-flex flex-row gap-2 mb-4">
         <a class="btn btn-info btn-lg text-white" href="./faq-edit.php?id=<?php echo $id; ?>" style="min-width:120px;">編集</a>
-        <a class="btn btn-danger btn-lg text-white" href="./faq-delte-do.php" style="min-width:120px;">削除</a>
+        <form action="./faq-delete-do.php" method="post" onsubmit="return confirm('本当に削除してもよろしいですか?')">
+          <input type="hidden" name="id" value="<?php echo $id; ?>">
+          <button type="submit" class="btn btn-danger btn-lg text-white" style="min-width:120px;">削除</button>
+        </form>
       </div>
       <dl class="mb-5">
         <div class="border-bottom mb-3">
