@@ -45,7 +45,7 @@ try {
       </div>
       <!-- 表示 -->
       <div class="d-flex flex-row gap-2 mb-4">
-        <a class="btn btn-info btn-lg text-white" href="./faq-edit.php" style="min-width:120px;">編集</a>
+        <a class="btn btn-info btn-lg text-white" href="./faq-edit.php?id=<?php echo $id; ?>" style="min-width:120px;">編集</a>
         <a class="btn btn-danger btn-lg text-white" href="./faq-delte-do.php" style="min-width:120px;">削除</a>
       </div>
       <dl class="mb-5">
