@@ -51,7 +51,7 @@ try {
         <h1 class="mb-4">商品 - 詳細</h1>
 
         <div class="d-flex flex-row gap-2 mb-3">
-            <form action="menu-edit.php" method="post">
+            <form action="menu-edit.php" method="get">
                 <input type="hidden" name="id" value="<?php echo $menu['id']; ?>">
                 <button type="submit" class="btn btn-info text-white">
                     編集
