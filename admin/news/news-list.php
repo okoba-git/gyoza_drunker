@@ -16,8 +16,6 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/style.css">
@@ -26,8 +24,9 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <body class="l-wrapper">
 
-    <?php
-    require_once __DIR__ .  '/../inc/header.php';
+    <?php 
+    $link = '..';
+    require_once __DIR__ . '/../inc/header.php'; 
     ?>
     <?php if (!empty($_SESSION['success'])): ?>
         <div class="alert alert-success">削除完了しました！</div>

@@ -22,7 +22,10 @@ try {
 </head>
 
 <body>
-  <?php require_once __DIR__ . '/../inc/header.php'; ?>
+  <?php 
+    $link = '..';
+    require_once __DIR__ . '/../inc/header.php'; 
+    ?>
   <main class="container">
     <div class="l-wrapper">
       <h1 class="my-5 text-center">FAQ - 一覧</h1>
