@@ -7,7 +7,7 @@ $type = ['danger', 'primary'];
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : '';
 if (!isAvailableMethodValue($id)) {
-  $_SESSION['res_message'] = ['type' => 0, 'msg' => 'POSTの取得に失敗しました。'];
+  $_SESSION['res_message'] = ['type' => 0, 'msg' => 'GETの取得に失敗しました。'];
   header('Location: ./faq-list.php');
   exit();
 }

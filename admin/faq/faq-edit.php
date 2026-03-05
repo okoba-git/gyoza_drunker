@@ -7,7 +7,7 @@ $type = ['danger', 'primary'];
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : '';
 if (!isAvailableMethodValue($id)) {
-  $_SESSION['res_message'] = ['type' => 0, 'msg' => 'GETの取得に失敗しました。'];
+  $_SESSION['res_message'] = ['type' => 0, 'msg' => 'GETの取得に失敗したため、編集ページの表示に失敗しました。'];
   header('Location: ./faq-detail.php?id='.$id);
   exit();
 }
@@ -54,7 +54,7 @@ try {
           <a class="btn btn-secondary btn-lg text-white" href="./faq-detail.php?id=<?php echo $id; ?>" style="min-width:120px;">キャンセル</a>
         </div>
         <!-- id -->
-         <input type="hidden" name="id">
+         <input type="hidden" name="id" value="<?php echo $id; ?>">
         <!-- カテゴリー -->
         <div class="col-3 mb-3">
           <label for="category" class="form-label">カテゴリー</label>
