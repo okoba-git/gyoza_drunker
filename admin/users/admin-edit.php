@@ -48,15 +48,12 @@ try {
                 <input type="password" name="password" id="password" class="form-control">
             </div>
 
-            <div class="mb-3">
+            <div class="d-flex flex-row gap-2">
                 <input type="hidden" name="id" value="<?php echo $target['id']; ?>">
                 <input type="submit" value="変更する" class="btn btn-info btn-lg text-white" style="min-width:120px;">
+                <a class="btn btn-secondary btn-lg text-white" href="admin-list.php" style="min-width:120px;">キャンセル</a>
             </div>
         </form>
-
-        <div class=" text-center">
-            <a href="./admin-list.php" class="btn btn-primary mt-3">一覧画面に戻る</a>
-        </div>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>

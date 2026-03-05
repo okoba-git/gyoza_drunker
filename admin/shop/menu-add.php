@@ -89,13 +89,9 @@ try {
                     登録
                 </button>
 
-                <a class="btn btn-info btn-lg text-white" href="menu-add.php?id=<?php echo $shop['id']; ?>" style="min-width:120px;">キャンセル</a>
+                <a class="btn btn-secondary btn-lg text-white" href="shop-detail.php?id=<?php echo $shop['id']; ?>" style="min-width:120px;">キャンセル</a>
             </div>
         </form>
-
-        <div class=" text-center">
-            <a href="./shop-detail.php?id=<?php echo $shop['id']; ?>" class="btn btn-primary mt-3">店舗詳細に戻る</a>
-        </div>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>

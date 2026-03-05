@@ -80,6 +80,9 @@ try {
           <?php endforeach; ?>
         </tbody>
       </table>
+      <div class="text-center">
+        <a href="../index.php" class="btn btn-primary mb-5">TOPに戻る</a>
+      </div>
     </div>
   </main>
 

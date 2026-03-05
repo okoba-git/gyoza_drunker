@@ -49,13 +49,9 @@ require_once __DIR__ . '/../inc/login-check.php';
 
             <div class="d-flex flex-row gap-2">
                 <input type="submit" value="登録" class="btn btn-info btn-lg text-white" style="min-width:120px;">
-                <a class="btn btn-info btn-lg text-white" href="news-add.php" style="min-width:120px;">キャンセル</a>
+                <a class="btn btn-secondary btn-lg text-white" href="news-list.php" style="min-width:120px;">キャンセル</a>
             </div>
         </form>
-
-        <div class=" text-center">
-            <a href="./news-list.php" class="btn btn-primary mt-3">お知らせ一覧に戻る</a>
-        </div>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
