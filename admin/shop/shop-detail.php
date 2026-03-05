@@ -1,6 +1,5 @@
 <?php require_once __DIR__ . ('/../../inc/function.php');
 require_once __DIR__ . ('/../../inc/config.php');
-
 session_start();
 
 try {
@@ -20,7 +19,7 @@ try {
     $stmt2->execute();
     $menu = $stmt2->fetchALL(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
-    $e->getMessage();
+    exit('エラー: ' . $e->getMessage());
 }
 ?>
 
@@ -40,12 +39,16 @@ try {
 
     <?php if (!empty($_SESSION['success'])): ?>
         <div class="alert alert-success">登録完了しました！</div>
-        <?php unset($_SESSION['success']); ?>
+
+    <?php elseif (!empty($_SESSION['delete'])): ?>
+        <div class="alert alert-success">削除完了しました！</div>
     <?php endif; ?>
+
+    <?php unset($_SESSION['success'], $_SESSION['delete']); ?>
 
     <section class="mb-5">
         <h1 class="c-title">店舗 - 詳細</h1>
-        <a class="btn btn-info btn-lg text-white mb-3" href="shop-edit.php">編集</a>
+        <a class="btn btn-info btn-lg text-white mb-3" href="shop-edit.php?id=<?php echo $shop['id'] ?>">編集</a>
         <table class="table">
             <tbody>
                 <tr>

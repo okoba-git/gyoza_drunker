@@ -17,13 +17,13 @@ try {
     $shop = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // 商品情報取得
-    $sql2 = 'SELECT * FROM products WHERE shop_id = :id';
+    $sql2 = 'SELECT * FROM products WHERE id = :id';
     $stmt2 = $db->prepare($sql2);
     $stmt2->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt2->execute();
     $menu = $stmt2->fetch(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
-    $e->getMessage();
+    exit('エラー: ' . $e->getMessage());
 }
 ?>
 
@@ -42,9 +42,9 @@ try {
 <body class="l-wrapper">
     <?php require_once __DIR__ . ('/../inc/header.php'); ?>
     <div class="container my-5">
-
+        <?php var_dump($shop) ?>
         <?php if (!empty($_SESSION['success'])): ?>
-            <div class="alert alert-success">更新完了しました！</div>
+            <div class="alert alert-success">登録完了しました！</div>
             <?php unset($_SESSION['success']); ?>
         <?php endif; ?>
 
@@ -58,8 +58,9 @@ try {
                 </button>
             </form>
 
-            <form action="menu-del-do.php" method="post" onsubmit="return confirm('本当に削除してもよろしいですか?')">
-                <input type="hidden" name="id" value="<?php echo $menu['id']; ?>">
+            <form action="menu-delete-do.php" method="post" onsubmit="return confirm('本当に削除してもよろしいですか?')">
+                <input type="hidden" name="shop_id" value="<?php echo $menu['shop_id']; ?>">
+                <input type="hidden" name="menu_id" value="<?php echo $menu['id']; ?>">
                 <button type="submit" class="btn btn-danger btn-lg">
                     削除
                 </button>
