@@ -75,15 +75,17 @@ foreach ($categories as $i => $category) {
     <main class="l-wrapper">
         <h1 class="c-title">よくある質問</h1>
         <?php foreach ($result as $category): ?>
-            <section>
-                <h2 class="c-title__sub"><?php echo $category['name']; ?></h2>
-                <dl class="c-faqCard l-faqCard">
-                    <?php foreach ($category['faq'] as $faq): ?>
-                        <dt><span class="c-faqCard-q">Q</span><?php echo $faq['question']; ?></dt>
-                        <dd><?php echo $faq['answer']; ?></dd>
-                    <?php endforeach; ?>
-                </dl>
-            </section>
+            <?php if (!empty($category['faq'])): ?>
+                <section>
+                    <h2 class="c-title__sub"><?php echo $category['name']; ?></h2>
+                    <dl class="c-faqCard l-faqCard">
+                        <?php foreach ($category['faq'] as $faq): ?>
+                            <dt><span class="c-faqCard-q">Q</span><?php echo $faq['question']; ?></dt>
+                            <dd><?php echo $faq['answer']; ?></dd>
+                        <?php endforeach; ?>
+                    </dl>
+                </section>
+            <?php endif; ?>
         <?php endforeach; ?>
         <p class="c-btn-jump">
             <a href="#top">TOP</a>
