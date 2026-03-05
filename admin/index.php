@@ -21,23 +21,29 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style.css">
     <title>トップページ</title>
 </head>
 
-<body class="l-wrapper">
-    <?php require_once __DIR__ . '/inc/header.php'; ?>
+<body>
+    <?php
+    $link = '.';
+    require_once __DIR__ . '/inc/header.php';
+    ?>
+    <main class="container">
+        <div class="l-wrapper">
+            <h1 class="my-5 text-center">トップページ</h1>
+            <div class="d-flex justify-content-center text-center">
+                <ul class="list-group col-5">
+                    <a href="users/admin-list.php" class="list-group-item list-group-item-action">管理者一覧</a>
+                    <a href="news/news-list.php" class="list-group-item list-group-item-action">お知らせ一覧</a>
+                    <a href="contact/contact-list.php" class="list-group-item list-group-item-action">お問い合わせ一覧</a>
+                    <a href="shop/shop-list.php" class="list-group-item list-group-item-action">店舗一覧</a>
+                    <a href="faq/faq-list.php" class="list-group-item list-group-item-action">FAQカテゴリ</a>
+                </ul>
+            </div>
 
-    <h1 class="mb-5">トップページ</h1>
-    <ul>
-        <li class="list-group-item"><a href="users/admin-list.php" class="nav-link">管理者一覧</a></li>
-        <li class="list-group-item"><a href="news/news-list.php" class="nav-link">お知らせ一覧</a></li>
-        <li class="list-group-item"><a href="contact/contact-list.php" class="nav-link">お問い合わせ一覧</a></li>
-        <li class="list-group-item"><a href="shop/shop-list.php" class="nav-link">店舗一覧</a></li>
-        <li class="list-group-item"><a href="faq/faq-list.php" class="nav-link">FAQカテゴリ</a></li>
-    </ul>
-
-
+        </div>
+    </main>
     <!-- Bootstrap Javascript(jQuery含む) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
     <script>
