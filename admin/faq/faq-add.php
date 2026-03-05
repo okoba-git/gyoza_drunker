@@ -38,6 +38,10 @@ try {
         <?php endif; ?>
       </div>
       <!-- 入力フォーム -->
+      <div class="d-flex flex-row gap-2 mb-3">
+        <input type="submit" value="追加" class="btn btn-info btn-lg text-white" style="min-width:120px;" id="btn-submit">
+        <a class="btn btn-secondary btn-lg text-white" href="./faq-list.php" style="min-width:120px;">キャンセル</a>
+      </div>
       <form action="faq-add-do.php" method="post" class="mb-5" id="category-form">
         <div class="col-3 mb-3">
           <label for="category" class="form-label">カテゴリー</label>
@@ -54,10 +58,6 @@ try {
         <div class="col-8 mb-5">
           <label for="answer" class="form-label">解答</label>
           <input type="text" name="answer" id="answer" class="form-control" required>
-        </div>
-        <div class="d-flex flex-row gap-2">
-          <input type="submit" value="追加" class="btn btn-info btn-lg text-white" style="min-width:120px;" id="btn-submit">
-          <a class="btn btn-secondary btn-lg text-white" href="./faq-list.php" style="min-width:120px;">キャンセル</a>
         </div>
       </form>
     </div>
