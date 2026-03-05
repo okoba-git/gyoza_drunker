@@ -38,20 +38,23 @@ try {
                 <option value="<?php echo $category['id'] ?>"><?php echo $category['name'] ?></option>
               <?php endforeach; ?>
             </select>
+            <a href="./faq-category.php" class="btn btn-primary text-nowrap mt-2 mt-sm-0" id="category-list-btn">
+              一覧へ
+            </a>
           </div>
-          <a href="./faq-category.php" class="btn btn-primary text-nowrap mt-2 mt-sm-0" id="category-list-btn">
-            カテゴリー一覧へ
+          <a href="./faq-add.php" class="btn btn-primary text-nowrap mt-2 mt-sm-0" id="category-list-btn">
+            FAQを追加
           </a>
         </div>
       </div>
       <!-- faqリスト -->
-      <table class="table table-bordered">
+      <table class="table table-bordered mb-5">
         <thead>
           <tr>
             <th class="col">id</th>
+            <th class="col">カテゴリー</th>
             <th class="col">質問</th>
             <th class="col">解答</th>
-            <th class="col">カテゴリー</th>
             <th class="col">create_at</th>
             <th class="col">update_at</th>
             <th class="col text-center">操作</th>
@@ -61,6 +64,9 @@ try {
           <!-- 一覧をテーブルで表示 -->
         </tbody>
       </table>
+      <div class="text-center">
+        <a href="../index.php" class="btn btn-primary mb-5">TOPページへ戻る</a>
+      </div>
     </div>
   </main>
 
