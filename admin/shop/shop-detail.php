@@ -1,6 +1,8 @@
 <?php require_once __DIR__ . ('/../../inc/function.php');
 require_once __DIR__ . ('/../../inc/config.php');
 
+session_start();
+
 try {
     $id = $_GET['id'];
     $db = db_connect();
@@ -12,7 +14,7 @@ try {
     $shop = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // 商品情報取得
-    $sql2 = 'SELECT name,id FROM products WHERE id= :id';
+    $sql2 = 'SELECT name,id FROM products WHERE shop_id = :id';
     $stmt2 = $db->prepare($sql2);
     $stmt2->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt2->execute();
@@ -20,8 +22,6 @@ try {
 } catch (PDOException $e) {
     $e->getMessage();
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +38,12 @@ try {
 
 <body class="l-wrapper">
     <?php require_once __DIR__ . ('/../inc/header.php'); ?>
+
+    <?php if (!empty($_SESSION['success'])): ?>
+        <div class="alert alert-success">登録完了しました！</div>
+        <?php unset($_SESSION['success']); ?>
+    <?php endif; ?>
+
     <h1 class="mb-5">店舗 - 詳細</h1>
 
     <a class="btn btn-primary" href="shop-edit.php">編集</a>
@@ -61,7 +67,12 @@ try {
 
 
     <h1>商品 - 一覧</h1>
-    <a href="menu-add.php" class="btn btn-primary">商品追加</a>
+    <form action="menu-add.php" method="get">
+        <input type="hidden" name="id" value="<?php echo $shop['id']; ?>">
+        <button type="submit" class="btn btn-primary">
+            商品追加
+        </button>
+    </form>
     <table class="table">
         <?php foreach ($menu as $item) : ?>
             <tr>

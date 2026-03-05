@@ -1,3 +1,15 @@
+<?php
+    require_once __DIR__ . '/inc/function.php';
+    require_once __DIR__ . '/inc/config.php';
+
+    $news_id = (int)$_GET['id'];
+    try {
+        $news = get_display_news_data($news_id);
+    } catch (PDOException $e) {
+        debug_log($e->getMessage());
+    }
+    ?>
+    
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -29,13 +41,20 @@
 
 <body>
     <?php require_once __DIR__ . '/inc/header.php'; ?>
+    
     <main class="l-wrapper">
+        <?php  ?>
 
-        <h1 class="c-title">出店企業様大募集中！</h1>
+        <h1 class="c-title"><?php echo $news['title']; ?></h1>
         <div class="c-section">
-            <p class="c-newsDet-date"><time datetime="2030-02-16">2030.2.16</time></p>
+            <p class="c-newsDet-date"><time datetime="<?php echo $news['create_at']; ?>">
+                    <?php
+                    $date = new DateTime($news['create_at']);
+                    echo $date->format('Y.n.j');
+                    ?>
+                </time></p>
             <p class="c-newsDet-con">
-                テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                <?php echo $news['body']; ?>
             </p>
             <div class="c-btn c-btn__black">
                 <a href="news.php">一覧に戻る</a>

@@ -44,6 +44,29 @@ function get_display_menu_data($product_id = 0)
 }
 
 /**
+ * お問い合わせ取得関数
+ * 
+ * @param int $news_id
+ * @return 
+ */
+function get_display_news_data ($news_id = 0) {
+    $db = db_connect();
+    $sql = 'SELECT 
+            id AS news_id, 
+            title, 
+            body, 
+            create_at, 
+            update_at 
+            FROM news WHERE news.id=:id';
+    $stmt = $db->prepare($sql);
+    if($news_id !== 0){
+        $stmt->bindParam(':id', $news_id, PDO::PARAM_INT);
+    }
+    $stmt->execute();
+    return $news_id !== 0 ? $stmt->fetch(PDO::FETCH_ASSOC) : $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+/**
  * faq取得関数
  * 
  * faq一覧をDBから取得する関数。

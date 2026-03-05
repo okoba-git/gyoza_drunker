@@ -4,6 +4,7 @@ require_once __DIR__ . ('/../../inc/function.php');
 
 session_start();
 ?>
+
 <!doctype html>
 <html lang="ja">
 
@@ -25,7 +26,7 @@ session_start();
             <?php unset($_SESSION['success']); ?>
         <?php endif; ?>
 
-        <h1 class="my-5">管理者ユーザー - 追加</h1>
+        <h1 class="my-5">管理者ユーザー - 新規作成</h1>
 
         <form action="admin-add-do.php" method="post">
             <div class="mb-3 col">
