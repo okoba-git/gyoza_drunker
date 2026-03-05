@@ -61,6 +61,10 @@ function renderTable(faqListData) {
     tdId.className = 'col';
     tdId.textContent = faq.id;
 
+    const tdCategory = document.createElement('td');
+    tdCategory.className = 'col-2';
+    tdCategory.textContent = faq.category_name;
+
     const tdQuestion = document.createElement('td');
     tdQuestion.className = 'col-3';
     tdQuestion.textContent = faq.question;
@@ -68,10 +72,6 @@ function renderTable(faqListData) {
     const tdAnswer = document.createElement('td');
     tdAnswer.className = 'col-4';
     tdAnswer.textContent = faq.answer;
-
-    const tdCategory = document.createElement('td');
-    tdCategory.className = 'col-2';
-    tdCategory.textContent = faq.category_name;
 
     const tdCreateAt = document.createElement('td');
     tdCreateAt.className = 'col';
@@ -87,9 +87,9 @@ function renderTable(faqListData) {
 
     // 行に結合
     trElm.appendChild(tdId);
+    trElm.appendChild(tdCategory);
     trElm.appendChild(tdQuestion);
     trElm.appendChild(tdAnswer);
-    trElm.appendChild(tdCategory);
     trElm.appendChild(tdCreateAt);
     trElm.appendChild(tdUpdateAt);
     trElm.appendChild(tdAction);
