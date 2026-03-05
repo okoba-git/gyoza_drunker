@@ -26,6 +26,7 @@ try{
       <h1 class="my-5 text-center">FAQカテゴリー - 編集</h1>
       <div id="message-area"></div>
       <form action="category-edit-do.php" method="post" class="mb-5" id="category-form">
+        <input type="hidden" name="id" value="<?php echo $id; ?>" id="faq-id">
         <div class="col-5 mb-3">
           <label for="name" class="form-label">カテゴリー名</label>
           <input type="text" name="name" id="name" class="form-control" value=<?php echo $faq['name']; ?>>

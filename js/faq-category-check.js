@@ -3,11 +3,13 @@ import { messageArea, appendMessage, jsonErrorMessage } from "./message-area.js"
 const form = document.getElementById('category-form');
 const sortOrder = document.getElementById('sort_order');
 const submit = document.getElementById('btn-submit');
+const idElm = document.getElementById('faq-id');
 
 submit.addEventListener('click', async event => {
   event.preventDefault();
 
   const num = parseInt(sortOrder.value);
+
   // 入力された値が数値じゃない時
   if (!Number.isInteger(num)) {
     appendMessage('ソート番号は整数を入力してください。', 'danger');
@@ -23,11 +25,9 @@ submit.addEventListener('click', async event => {
     jsonErrorMessage(checkJson);
     return;
   }
-  console.log('test');
   
-  if (!checkJson.isAvailable) {
-    // ソート番号がまだないのでそのまま登録
-    console.log('test');
+  if (!checkJson.isAvailable || isSelfId(idElm, checkJson.id)) {
+    // ソート番号がまだないまたは自分自身なのでそのまま登録
     form.submit();
   } else {
     // ソート番号がすでにあるので登録するか確認
@@ -86,4 +86,14 @@ async function updateSortOrder(id) {
   }
   const json = await response.json();
   return json;
+}
+
+/**
+ * ソート番号が一致するレコードが自分自身かどうか
+ * @param {HTMLElement} elm 自身のIDを持つ要素
+ * @param {int} id ソート番号が一致するFAQカテゴリID
+ * @returns ソート番号が一致するIDが自分自身の場合true。一致するのが自分以外または追加の時はfalse
+ */
+function isSelfId(elm, id) {
+  return elm ? parseInt(elm.value) === id : false;
 }
