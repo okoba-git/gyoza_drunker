@@ -1,6 +1,7 @@
 <?php
-require_once __DIR__ . ('/../../inc/config.php');
-require_once __DIR__ . ('/../../inc/function.php');
+require_once __DIR__ . '/../../inc/function.php';
+$path = '..';
+require_once __DIR__ . '/../inc/login-check.php';
 
 // DBに接続
 // TODO: ID取得とバリデーション
@@ -30,12 +31,12 @@ try {
 </head>
 
 <body>
-    <?php
-    require_once __DIR__ .  '/../inc/header.php';
-    ?>
+    <?php require_once __DIR__ . '/../inc/header.php'; ?>
 
     <main role="main" class="container" style="padding:60px 15px 0">
         <h1 class="my-5">管理者ユーザー - 編集</h1>
+        <!-- メッセージ -->
+        <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
         <form action="admin-edit-do.php" method="post">
             <div class="mb-3 col">
                 <label for="name" class="form-label">ユーザー名</label>
@@ -47,15 +48,12 @@ try {
                 <input type="password" name="password" id="password" class="form-control">
             </div>
 
-            <div class="mb-3">
+            <div class="d-flex flex-row gap-2">
                 <input type="hidden" name="id" value="<?php echo $target['id']; ?>">
                 <input type="submit" value="変更する" class="btn btn-info btn-lg text-white" style="min-width:120px;">
+                <a class="btn btn-secondary btn-lg text-white" href="admin-list.php" style="min-width:120px;">キャンセル</a>
             </div>
         </form>
-
-        <div class=" text-center">
-            <a href="./admin-list.php" class="btn btn-primary mt-3">一覧画面に戻る</a>
-        </div>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>

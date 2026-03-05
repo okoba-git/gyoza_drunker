@@ -1,9 +1,7 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
-session_start();
-$message = $_SESSION['res_message'] ?? '';
-unset($_SESSION['res_message']);
-$type = ['danger', 'primary'];
+$path = '..';
+require_once __DIR__ . '/../inc/login-check.php';
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : '';
 if (!isAvailableMethodValue($id)) {
@@ -39,13 +37,7 @@ try {
     <div class="l-wrapper">
       <h1 class="my-5 text-center">FAQ - 編集</h1>
       <!-- メッセージ -->
-      <div id="message-area">
-        <?php if ($message !== ''): ?>
-          <div class="alert alert-<?php echo $type[$message['type']]; ?> alert-dismissible" role="alert">
-            <div><?php echo $message['msg']; ?></div>
-          </div>
-        <?php endif; ?>
-      </div>
+      <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
       <!-- 入力フォーム -->
       <form action="faq-edit-do.php" method="post" class="mb-5" id="category-form">
         <!-- ボタン -->

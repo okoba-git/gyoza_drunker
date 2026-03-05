@@ -1,8 +1,7 @@
 <?php
-require_once __DIR__ . ('/../../inc/config.php');
-require_once __DIR__ . ('/../../inc/function.php');
-
-session_start();
+require_once __DIR__ . '/../../inc/function.php';
+$path = '..';
+require_once __DIR__ . '/../inc/login-check.php';
 
 // DBに接続
 // ID取得とバリデーション
@@ -38,13 +37,12 @@ try {
 </head>
 
 <body>
-    <?php
-    require_once __DIR__ .  '/../inc/header.php';
-    ?>
+    <?php require_once __DIR__ . '/../inc/header.php'; ?>
 
     <main role="main" class="container" style="padding:60px 15px 0">
         <h1 class="my-5">メニュー - 新規登録</h1>
-
+        <!-- メッセージ -->
+        <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
         <form action="menu-add-do.php" method="post">
             <div class="mb-3 col">
                 <label for="create_at" class="form-label">作成日</label>
@@ -91,13 +89,9 @@ try {
                     登録
                 </button>
 
-                <a class="btn btn-info btn-lg text-white" href="menu-add.php?id=<?php echo $shop['id']; ?>" style="min-width:120px;">キャンセル</a>
+                <a class="btn btn-secondary btn-lg text-white" href="shop-detail.php?id=<?php echo $shop['id']; ?>" style="min-width:120px;">キャンセル</a>
             </div>
         </form>
-
-        <div class=" text-center">
-            <a href="./shop-detail.php?id=<?php echo $shop['id']; ?>" class="btn btn-primary mt-3">店舗詳細に戻る</a>
-        </div>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>

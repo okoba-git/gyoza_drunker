@@ -1,16 +1,13 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
+$path = '..';
+require_once __DIR__ . '/../inc/login-check.php';
 $id = isset($_GET['id']) ? (int)$_GET['id'] : '';
 try{
   $faq = get_faq_category_data($id);
 }catch (PDOException $e){
   debug_log($e->getMessage());
 }
-
-session_start();
-$message = $_SESSION['res_message'] ?? '';
-unset($_SESSION['res_message']);
-$type = ['danger', 'primary'];
 ?>
 <!doctype html>
 <html lang="ja">
@@ -30,13 +27,7 @@ $type = ['danger', 'primary'];
     <div class="l-wrapper">
       <h1 class="my-5 text-center">FAQカテゴリー - 編集</h1>
       <!-- メッセージ -->
-      <div id="message-area">
-        <?php if ($message !== ''): ?>
-          <div class="alert alert-<?php echo $type[$message['type']]; ?> alert-dismissible" role="alert">
-            <div><?php echo $message['msg']; ?></div>
-          </div>
-        <?php endif; ?>
-      </div>
+      <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
       <!-- 入力フォーム -->
       <form action="category-edit-do.php" method="post" class="mb-5" id="category-form">
         <input type="hidden" name="id" value="<?php echo $id; ?>" id="faq-id">

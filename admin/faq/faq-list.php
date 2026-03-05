@@ -1,9 +1,7 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
-session_start();
-$message = $_SESSION['res_message'] ?? '';
-unset($_SESSION['res_message']);
-$type = ['danger', 'primary'];
+$path = '..';
+require_once __DIR__ . '/../inc/login-check.php';
 
 try {
   // faqカテゴリを取得
@@ -26,21 +24,12 @@ try {
 </head>
 
 <body>
-  <?php 
-    $link = '..';
-    require_once __DIR__ . '/../inc/header.php'; 
-    ?>
+  <?php require_once __DIR__ . '/../inc/header.php'; ?>
   <main class="container">
     <div class="l-wrapper">
       <h1 class="my-5 text-center">FAQ - 一覧</h1>
       <!-- メッセージ -->
-      <div id="message-area">
-        <?php if ($message !== ''): ?>
-          <div class="alert alert-<?php echo $type[$message['type']]; ?> alert-dismissible" role="alert">
-            <div><?php echo $message['msg']; ?></div>
-          </div>
-        <?php endif; ?>
-      </div>
+      <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
       <!-- カテゴリー -->
       <div class="container my-3">
         <div class="d-sm-flex justify-content-between align-items-center">
@@ -79,7 +68,7 @@ try {
         </tbody>
       </table>
       <div class="text-center">
-        <a href="../index.php" class="btn btn-primary mb-5">TOPページへ戻る</a>
+        <a href="../index.php" class="btn btn-primary mb-5">TOPに戻る</a>
       </div>
     </div>
   </main>

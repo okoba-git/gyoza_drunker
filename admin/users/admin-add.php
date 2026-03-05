@@ -1,8 +1,7 @@
 <?php
-require_once __DIR__ . ('/../../inc/config.php');
-require_once __DIR__ . ('/../../inc/function.php');
-
-session_start();
+require_once __DIR__ . '/../../inc/function.php';
+$path = '..';
+require_once __DIR__ . '/../inc/login-check.php';
 ?>
 
 <!doctype html>
@@ -12,13 +11,10 @@ session_start();
     <title>管理者登録｜ふくおか餃子FES</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <?php
-    require_once __DIR__ .  '/../inc/header.php';
-    ?>
+    <?php require_once __DIR__ . '/../inc/header.php'; ?>
 
     <main role="main" class="container" style="padding:60px 15px 0">
         <?php if (!empty($_SESSION['success'])): ?>
@@ -27,6 +23,8 @@ session_start();
         <?php endif; ?>
 
         <h1 class="my-5">管理者ユーザー - 新規作成</h1>
+        <!-- メッセージ -->
+        <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
 
         <form action="admin-add-do.php" method="post">
             <div class="mb-3 col">
@@ -41,13 +39,9 @@ session_start();
 
             <div class="d-flex flex-row gap-2">
                 <input type="submit" value="追加" class="btn btn-info btn-lg text-white" style="min-width:120px;">
-                <a class="btn btn-info btn-lg text-white" href="admin-add.php" style="min-width:120px;">キャンセル</a>
+                <a class="btn btn-secondary btn-lg text-white" href="admin-list.php" style="min-width:120px;">キャンセル</a>
             </div>
         </form>
-
-        <div class=" text-center">
-            <a href="./admin-list.php" class="btn btn-primary mt-3">一覧画面に戻る</a>
-        </div>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>

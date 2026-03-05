@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
-session_start();
+$path = '..';
+require_once __DIR__ . '/../inc/login-check.php';
 
 // 文字列として受け取ったあと数値に変換
 $question = $_POST['question'] ?? '';

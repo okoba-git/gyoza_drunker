@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__ . ('/../../inc/config.php');
-require_once __DIR__ . ('/../../inc/function.php');
-session_start();
+require_once __DIR__ . '/../../inc/function.php';
+$path = '..';
+require_once __DIR__ . '/../inc/login-check.php';
 
 // DBに接続
 // ID取得とバリデーション
@@ -27,45 +27,43 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/style.css">
     <title>店舗情報更新｜ふくおか餃子FES</title>
 </head>
 
 <body class="l-wrapper">
-    <?php require_once __DIR__ . ('/../inc/header.php'); ?>
-    <h1 class="c-title">店舗情報 - 編集</h1>
+    <?php require_once __DIR__ . '/../inc/header.php'; ?>
+    <main class="container">
+        <div class="l-wrapper">
+            <h1 class="my-5 text-center">店舗情報 - 編集</h1>
+            <!-- メッセージ -->
+            <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
+            <form action="shop-edit-do.php" method="post" class="needs-validation mb-3" novalidate>
+                <div class="mb-3">
+                    <label for="name" class="form-label">店舗名</label>
+                    <input type="text" name="name" id="name" class="form-control" value="<?php echo $shop['name']; ?>" placeholder="店舗名を入力してください。" required>
+                </div>
+                <div class="mb-3">
+                    <label for="shop_num" class="form-label">ブース番号</label>
+                    <input type="text" name="shop_num" id="shop_num" class="form-control" value="<?php echo $shop['shop_num']; ?>" placeholder="例：B-01">
+                </div>
 
-    <form action="shop-edit-do.php" method="post" class="needs-validation mb-3" novalidate>
-        <div class="mb-3">
-            <label for="name" class="form-label">店舗名</label>
-            <input type="text" name="name" id="name" class="form-control" value="<?php echo $shop['name']; ?>" placeholder="店舗名を入力してください。" required>
+                <div class="mb-5">
+                    <label for="body" class="form-label">紹介文</label>
+                    <textarea name="body" id="body" class="form-control" placeholder="紹介文を入力してください。" required>
+                        <?php echo $shop['body']; ?>
+                    </textarea>
+                </div>
+
+                <div class="d-flex gap-2 mb-3">
+                    <input type="hidden" name="id" value="<?php echo $shop['id']; ?>">
+                    <button type="submit" class="btn btn-info btn-lg  text-white" style="min-width:120px;">
+                        更新する
+                    </button>
+                    <a href="shop-list.php" class="btn btn-secondary btn-lg">キャンセル</a>
+                </div>
+            </form>
         </div>
-
-        <div class="mb-3">
-            <label for="shop_num" class="form-label">ブース番号</label>
-            <input type="text" name="shop_num" id="shop_num" class="form-control" value="<?php echo $shop['shop_num']; ?>" placeholder="例：B-01">
-        </div>
-
-        <div class="mb-5">
-            <label for="body" class="form-label">紹介文</label>
-            <textarea name="body" id="body" class="form-control" placeholder="紹介文を入力してください。" required>
-                <?php echo $shop['body']; ?>
-            </textarea>
-        </div>
-
-        <div class="d-flex gap-2 mb-3">
-            <input type="hidden" name="id" value="<?php echo $shop['id']; ?>">
-            <button type="submit" class="btn btn-info btn-lg  text-white" style="min-width:120px;">
-                更新する
-            </button>
-
-            <a href="shop-list.php" class="btn btn-secondary btn-lg">キャンセル</a>
-        </div>
-    </form>
-
-    <div class=" text-center mt-4">
-        <a href="shop-detail.php?id=<?php echo $shop['id']; ?>" class="btn btn-primary btn-lg">店舗詳細に戻る</a>
-    </div>
+    </main>
 
 
     <!-- Bootstrap Javascript(jQuery含む) -->

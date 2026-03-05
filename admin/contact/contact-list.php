@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
+$path = '..';
+require_once __DIR__ . '/../inc/login-check.php';
 
 // お問い合わせとお問い合わせステータス用配列
 $contacts = [];
@@ -36,14 +38,11 @@ try {
 </head>
 
 <body>
-  <?php 
-    $link = '..';
-    require_once __DIR__ . '/../inc/header.php'; 
-    ?>
+  <?php require_once __DIR__ . '/../inc/header.php'; ?>
   <main class="container">
     <div class="l-wrapper">
       <h1 class="my-5 text-center">お問い合わせ - 一覧</h1>
-      <div id="message-area"></div>
+      <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -81,6 +80,9 @@ try {
           <?php endforeach; ?>
         </tbody>
       </table>
+      <div class="text-center">
+        <a href="../index.php" class="btn btn-primary mb-5">TOPに戻る</a>
+      </div>
     </div>
   </main>
 

@@ -1,14 +1,10 @@
 <?php
-// 1. POSTデータを受け取る
+require_once __DIR__ . '/inc/function.php';
+// POSTデータを受け取る
 $name  = $_POST['name']  ?? '';
 $email = $_POST['email'] ?? '';
 $tel   = $_POST['tel'] ?? '';
 $body = $_POST['body'] ?? '';
-
-// 2. セキュリティ対策（XSS対策）のための関数
-function secure($s){
-  return htmlspecialchars($s, ENT_QUOTES, "UTF-8");
-}
 ?>
 
 <!DOCTYPE html>

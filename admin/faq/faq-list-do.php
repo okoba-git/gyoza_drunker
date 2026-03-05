@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
+$path = '..';
+require_once __DIR__ . '/../inc/login-check.php';
 
 // 文字列として受け取ったあと数値に変換
 $category_id = isset($_GET['category_id']) ? (int)$_GET['category_id'] : '';

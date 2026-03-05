@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
+$path = '..';
+require_once __DIR__ . '/../inc/login-check.php';
 
 try {
   // faqカテゴリを取得
@@ -7,11 +9,6 @@ try {
 } catch (PDOException $e) {
   debug_log($e->getMessage());
 }
-
-session_start();
-$message = $_SESSION['res_message'] ?? '';
-unset($_SESSION['res_message']);
-$type = ['danger', 'primary'];
 ?>
 <!doctype html>
 <html lang="ja">
@@ -26,20 +23,12 @@ $type = ['danger', 'primary'];
 </head>
 
 <body>
-  <?php 
-    $link = '..';
-    require_once __DIR__ . '/../inc/header.php'; 
-    ?>
+  <?php require_once __DIR__ . '/../inc/header.php'; ?>
   <main class="container">
     <div class="l-wrapper">
       <h1 class="my-5 text-center">FAQカテゴリー - 一覧</h1>
-      <div id="message-area">
-        <?php if ($message !== ''): ?>
-          <div class="alert alert-<?php echo $type[$message['type']]; ?> alert-dismissible" role="alert">
-            <div><?php echo $message['msg']; ?></div>
-          </div>
-        <?php endif; ?>
-      </div>
+      <!-- メッセージ -->
+      <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
       <!-- 追加ボタン -->
       <div class="container my-3">
         <div class="d-sm-flex justify-content-end align-items-center">

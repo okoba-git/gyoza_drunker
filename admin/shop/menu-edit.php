@@ -1,8 +1,7 @@
 <?php
-require_once __DIR__ . ('/../../inc/config.php');
-require_once __DIR__ . ('/../../inc/function.php');
-
-session_start();
+require_once __DIR__ . '/../../inc/function.php';
+$path = '..';
+require_once __DIR__ . '/../inc/login-check.php';
 
 // DBに接続
 // ID取得とバリデーション
@@ -43,13 +42,12 @@ try {
 </head>
 
 <body>
-    <?php
-    require_once __DIR__ .  '/../inc/header.php';
-    ?>
+    <?php require_once __DIR__ . '/../inc/header.php'; ?>
 
     <main role="main" class="container" style="padding:60px 15px 0">
         <h1 class="c-title">商品情報 - 編集</h1>
-
+        <!-- メッセージ -->
+        <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
         <form action="menu-edit-do.php" method="post">
             <div class="mb-3 col">
                 <label for="name" class="form-label">商品名</label>
