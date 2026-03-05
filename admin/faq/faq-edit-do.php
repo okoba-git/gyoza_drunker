@@ -25,7 +25,7 @@ try {
   $stmt->bindParam(':id', $id, PDO::PARAM_INT);
   $stmt->execute();
 
-  $_SESSION['res_message'] = ['type' => 1, 'msg' => 'ID:'.$id.'を変更しました。'];
+  $_SESSION['res_message'] = ['type' => 1, 'msg' => '変更を登録しました。'];
   header('Location: ./faq-detail.php?id='.$id);
 } catch (PDOException $e) {
   $_SESSION['res_message'] = ['type' => 0, 'msg' => $e->getMessage()];
