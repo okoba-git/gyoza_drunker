@@ -35,7 +35,7 @@ try {
     <?php require_once __DIR__ . ('/../inc/header.php'); ?>
     <h1 class="c-title">店舗情報 - 編集</h1>
 
-    <form action="shop-add-do.php" method="post" class="needs-validation mb-3" novalidate>
+    <form action="shop-edit-do.php" method="post" class="needs-validation mb-3" novalidate>
         <div class="mb-3">
             <label for="shop_name" class="form-label">店舗名</label>
             <input type="text" name="shop_name" id="shop_name" class="form-control" value="<?php echo $shop['name']; ?>" placeholder="店舗名を入力してください。" required>
@@ -54,13 +54,13 @@ try {
         </div>
 
         <div class="d-flex gap-2 mb-3">
-            <input type="submit" value="完了" class="btn btn-info text-white btn-lg">
+            <input type="submit" value="更新" class="btn btn-info text-white btn-lg">
             <a href="shop-list.php" class="btn btn-secondary btn-lg">キャンセル</a>
         </div>
     </form>
 
     <div class=" text-center mt-4">
-        <a href="shop-detail.php?id=<?php echo $shop['id']; ?>" class="btn btn-primary btn-lg">商品一覧に戻る</a>
+        <a href="shop-detail.php?id=<?php echo $shop['id']; ?>" class="btn btn-primary btn-lg">店舗詳細に戻る</a>
     </div>
 
 
