@@ -6,9 +6,6 @@ if (isset($_SESSION['id'])) {
     header('location:index.php');
     exit();
 }
-$message = $_SESSION['res_message'] ?? '';
-unset($_SESSION['res_message']);
-$type = ['danger', 'primary'];
 ?>
 <!doctype html>
 <html lang="ja">
@@ -28,13 +25,7 @@ $type = ['danger', 'primary'];
         <div class="l-wrapper">
             <h1 class="my-5 text-center">管理画面 - ログイン</h1>
             <!-- メッセージ -->
-            <div id="message-area">
-                <?php if ($message !== ''): ?>
-                    <div class="alert alert-<?php echo $type[$message['type']]; ?> alert-dismissible" role="alert">
-                        <div><?php echo $message['msg']; ?></div>
-                    </div>
-                <?php endif; ?>
-            </div>
+            <?php require_once __DIR__ . '/../inc/message_area.php'; ?>
 
             <form action="login-do.php" method="post">
                 <div class="row justify-content-center align-items-center mb-4">

@@ -35,7 +35,9 @@ try {
 
     <main role="main" class="container" style="padding:60px 15px 0">
         <h1 class="my-5">お知らせ - 編集</h1>
-
+        <!-- メッセージ -->
+        <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
+        <!-- 入力フォーム -->
         <form action="news-edit-do.php" method="post">
             <div class="col">
                 <label for="author" class="form-label">作成者</label>

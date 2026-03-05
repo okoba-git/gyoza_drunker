@@ -3,10 +3,6 @@ require_once __DIR__ . '/../../inc/function.php';
 $path = '..';
 require_once __DIR__ . '/../inc/login-check.php';
 
-$message = $_SESSION['res_message'] ?? '';
-unset($_SESSION['res_message']);
-$type = ['danger', 'primary'];
-
 try {
   // faqカテゴリを取得
   $categories = get_faq_category_data(0, false);
@@ -32,13 +28,7 @@ try {
     <div class="l-wrapper">
       <h1 class="my-5 text-center">FAQ - 追加</h1>
       <!-- メッセージ -->
-      <div id="message-area">
-        <?php if ($message !== ''): ?>
-          <div class="alert alert-<?php echo $type[$message['type']]; ?> alert-dismissible" role="alert">
-            <div><?php echo $message['msg']; ?></div>
-          </div>
-        <?php endif; ?>
-      </div>
+      <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
       <!-- 入力フォーム -->
       <form action="faq-add-do.php" method="post" class="mb-5" id="category-form">
         <div class="d-flex flex-row gap-2 mb-3">

@@ -28,6 +28,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <div class="alert alert-success">削除完了しました！</div>
                 <?php unset($_SESSION['success']); ?>
             <?php endif; ?>
+            <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
 
             <h1 class="my-5 text-center">お知らせ - 一覧</h1>
 

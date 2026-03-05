@@ -42,7 +42,7 @@ try {
   <main class="container">
     <div class="l-wrapper">
       <h1 class="my-5 text-center">お問い合わせ - 一覧</h1>
-      <div id="message-area"></div>
+      <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
       <table class="table table-bordered">
         <thead>
           <tr>

@@ -17,26 +17,6 @@ try {
 }
 ?>
 
-<!DOCTYPE html><?php
-                require_once __DIR__ . ('/../../inc/config.php');
-                require_once __DIR__ . ('/../../inc/function.php');
-
-                session_start();
-
-                try {
-                    // お知らせ情報取得
-                    $id = $_GET['id'];
-                    $db = db_connect();
-                    $sql = 'SELECT * FROM news WHERE id = :id';
-                    $stmt = $db->prepare($sql);
-                    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-                    $stmt->execute();
-                    $news = $stmt->fetch(PDO::FETCH_ASSOC);
-                } catch (PDOException $e) {
-                    $e->getMessage();
-                }
-                ?>
-
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -50,13 +30,14 @@ try {
 </head>
 
 <body class="l-wrapper">
-    <?php require_once __DIR__ . ('/../inc/header.php'); ?>
+    <?php require_once __DIR__ . '/../inc/header.php'; ?>
     <div class="container my-5">
 
         <?php if (!empty($_SESSION['success'])): ?>
             <div class="alert alert-success">更新完了しました！</div>
             <?php unset($_SESSION['success']); ?>
         <?php endif; ?>
+        <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
 
         <h1 class="mb-4">お知らせ - 詳細</h1>
 

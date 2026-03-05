@@ -23,7 +23,8 @@ require_once __DIR__ . '/../inc/login-check.php';
         <?php endif; ?>
 
         <h1 class="my-5">お知らせ情報 - 新規登録</h1>
-
+        <!-- メッセージ -->
+        <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
         <form action="news-add-do.php" method="post">
             <div class="mb-3 d-flex gap-5">
                 <div class="col">

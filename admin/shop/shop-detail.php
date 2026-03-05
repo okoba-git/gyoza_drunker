@@ -44,9 +44,9 @@ try {
     <?php elseif (!empty($_SESSION['delete'])): ?>
         <div class="alert alert-success">削除完了しました！</div>
     <?php endif; ?>
-
     <?php unset($_SESSION['success'], $_SESSION['delete']); ?>
-
+    <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
+    
     <section class="mb-5">
         <h1 class="c-title">店舗 - 詳細</h1>
         <a class="btn btn-info btn-lg text-white mb-3" href="shop-edit.php?id=<?php echo $shop['id'] ?>">編集</a>

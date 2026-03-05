@@ -23,6 +23,8 @@ require_once __DIR__ . '/../inc/login-check.php';
         <?php endif; ?>
 
         <h1 class="my-5">管理者ユーザー - 新規作成</h1>
+        <!-- メッセージ -->
+        <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
 
         <form action="admin-add-do.php" method="post">
             <div class="mb-3 col">

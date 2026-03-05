@@ -30,6 +30,7 @@ try {
     <main class="container">
         <div class="l-wrapper">
             <h1 class="my-5 text-center">トップページ</h1>
+            <?php require_once __DIR__ . '/../inc/message_area.php'; ?>
             <div class="d-flex justify-content-center text-center">
                 <ul class="list-group col-5">
                     <a href="users/admin-list.php" class="list-group-item list-group-item-action">管理者一覧</a>

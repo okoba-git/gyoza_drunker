@@ -34,6 +34,7 @@ try {
         <?php endif; ?>
 
         <h1 class="my-5">管理者 - 一覧</h1>
+        <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
         <a class="mb-4 btn btn-primary btn-lg" href="admin-add.php">ユーザー新規登録</a>
 
         <?php if (count($admins_array) > 0): ?>

@@ -31,6 +31,8 @@ try {
     <?php require_once __DIR__ . '/../inc/header.php'; ?>
 
     <h1 class="c-title">店舗 - 一覧</h1>
+    <!-- メッセージ -->
+    <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
     <a class="btn btn-info btn-lg text-white mb-3" href="shop-add.php">新規作成</a>
     <table class="table table-bordered">
         <thead>

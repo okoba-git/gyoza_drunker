@@ -3,10 +3,6 @@ require_once __DIR__ . '/../../inc/function.php';
 $path = '..';
 require_once __DIR__ . '/../inc/login-check.php';
 
-$message = $_SESSION['res_message'] ?? '';
-unset($_SESSION['res_message']);
-$type = ['danger', 'primary'];
-
 $id = isset($_GET['id']) ? (int)$_GET['id'] : '';
 if (!isAvailableMethodValue($id)) {
   $_SESSION['res_message'] = ['type' => 0, 'msg' => 'GETの取得に失敗したため、詳細ページの表示に失敗しました。'];
@@ -38,13 +34,7 @@ try {
     <div class="l-wrapper">
       <h1 class="my-5 text-center">FAQ - 詳細</h1>
       <!-- メッセージ -->
-      <div id="message-area">
-        <?php if ($message !== ''): ?>
-          <div class="alert alert-<?php echo $type[$message['type']]; ?> alert-dismissible" role="alert">
-            <div><?php echo $message['msg']; ?></div>
-          </div>
-        <?php endif; ?>
-      </div>
+      <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
       <!-- 表示 -->
       <div class="d-flex flex-row gap-2 mb-4">
         <a class="btn btn-info btn-lg text-white" href="./faq-edit.php?id=<?php echo $id; ?>" style="min-width:120px;">編集</a>

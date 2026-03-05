@@ -17,7 +17,9 @@ require_once __DIR__ . '/../inc/login-check.php';
 <body class="l-wrapper">
     <?php require_once __DIR__ . '/../inc/header.php'; ?>
     <h1 class="mb-5">店舗 - 追加</h1>
-
+    <!-- メッセージ -->
+    <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
+    <!-- フォーム -->
     <form action="shop-add-do.php" method="post" class="needs-validation mb-3" novalidate>
         <div class="mb-3">
             <label for="name" class="form-label">店舗名</label>

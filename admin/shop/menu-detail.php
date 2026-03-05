@@ -48,7 +48,8 @@ try {
         <?php endif; ?>
 
         <h1 class="c-title">商品 - 詳細</h1>
-
+        <!-- メッセージ -->
+        <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
         <div class="d-flex flex-row gap-2 mb-3">
             <form action="menu-edit.php" method="get">
                 <input type="hidden" name="id" value="<?php echo $menu['id']; ?>">

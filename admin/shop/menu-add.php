@@ -41,7 +41,8 @@ try {
 
     <main role="main" class="container" style="padding:60px 15px 0">
         <h1 class="my-5">メニュー - 新規登録</h1>
-
+        <!-- メッセージ -->
+        <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
         <form action="menu-add-do.php" method="post">
             <div class="mb-3 col">
                 <label for="create_at" class="form-label">作成日</label>

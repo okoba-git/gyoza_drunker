@@ -35,6 +35,8 @@ try {
 
     <main role="main" class="container" style="padding:60px 15px 0">
         <h1 class="my-5">管理者ユーザー - 編集</h1>
+        <!-- メッセージ -->
+        <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
         <form action="admin-edit-do.php" method="post">
             <div class="mb-3 col">
                 <label for="name" class="form-label">ユーザー名</label>
