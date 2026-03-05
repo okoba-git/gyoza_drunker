@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
+$path = '..';
 require_once __DIR__ . '/../inc/login-check.php';
 
 // DBに接続
@@ -38,7 +39,7 @@ try {
 </head>
 
 <body class="l-wrapper">
-    <?php require_once __DIR__ . ('/../inc/header.php'); ?>
+    <?php require_once __DIR__ . '/../inc/header.php'; ?>
     <div class="container my-5">
         <?php var_dump($shop) ?>
         <?php if (!empty($_SESSION['success'])): ?>

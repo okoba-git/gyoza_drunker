@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
+$path = '..';
 require_once __DIR__ . '/../inc/login-check.php';
 
 $message = $_SESSION['res_message'] ?? '';
@@ -27,10 +28,7 @@ try {
 </head>
 
 <body>
-  <?php 
-    $link = '..';
-    require_once __DIR__ . '/../inc/header.php'; 
-    ?>
+  <?php require_once __DIR__ . '/../inc/header.php'; ?>
   <main class="container">
     <div class="l-wrapper">
       <h1 class="my-5 text-center">FAQ - 一覧</h1>

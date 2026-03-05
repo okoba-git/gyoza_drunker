@@ -1,4 +1,5 @@
 <?php
+$path = '..';
 require_once __DIR__ . '/../inc/login-check.php'; 
 ?>
 <!DOCTYPE html>
@@ -14,7 +15,7 @@ require_once __DIR__ . '/../inc/login-check.php';
 </head>
 
 <body class="l-wrapper">
-    <?php require_once __DIR__ . ('/../inc/header.php'); ?>
+    <?php require_once __DIR__ . '/../inc/header.php'; ?>
     <h1 class="mb-5">店舗 - 追加</h1>
 
     <form action="shop-add-do.php" method="post" class="needs-validation mb-3" novalidate>

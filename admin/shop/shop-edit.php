@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
+$path = '..';
 require_once __DIR__ . '/../inc/login-check.php';
 
 // DBに接続
@@ -31,7 +32,7 @@ try {
 </head>
 
 <body class="l-wrapper">
-    <?php require_once __DIR__ . ('/../inc/header.php'); ?>
+    <?php require_once __DIR__ . '/../inc/header.php'; ?>
     <h1 class="c-title">店舗情報 - 編集</h1>
 
     <form action="shop-edit-do.php" method="post" class="needs-validation mb-3" novalidate>

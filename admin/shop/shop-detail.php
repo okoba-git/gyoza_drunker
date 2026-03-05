@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
+$path = '..';
 require_once __DIR__ . '/../inc/login-check.php';
 
 try {
@@ -35,7 +36,7 @@ try {
 </head>
 
 <body class="l-wrapper">
-    <?php require_once __DIR__ . ('/../inc/header.php'); ?>
+    <?php require_once __DIR__ . '/../inc/header.php'; ?>
 
     <?php if (!empty($_SESSION['success'])): ?>
         <div class="alert alert-success">登録完了しました！</div>

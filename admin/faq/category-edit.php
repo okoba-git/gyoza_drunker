@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
+$path = '..';
 require_once __DIR__ . '/../inc/login-check.php';
 $id = isset($_GET['id']) ? (int)$_GET['id'] : '';
 try{

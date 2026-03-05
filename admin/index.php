@@ -1,6 +1,7 @@
 <?php
-require_once __DIR__ . ('/../inc/function.php');
-require_once __DIR__ . '/../inc/login-check.php';
+require_once __DIR__ . '/../inc/function.php';
+$path = '.';
+require_once __DIR__ . '/inc/login-check.php';
 
 try {
     $db = db_connect();
@@ -25,10 +26,7 @@ try {
 </head>
 
 <body>
-    <?php
-    $link = '.';
-    require_once __DIR__ . '/inc/header.php';
-    ?>
+    <?php require_once __DIR__ . '/inc/header.php'; ?>
     <main class="container">
         <div class="l-wrapper">
             <h1 class="my-5 text-center">トップページ</h1>

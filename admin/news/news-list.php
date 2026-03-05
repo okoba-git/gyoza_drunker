@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
+$path = '..';
 require_once __DIR__ . '/../inc/login-check.php';
 
 // DBに接続
@@ -20,10 +21,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <?php
-    $link = '..';
-    require_once __DIR__ . '/../inc/header.php';
-    ?>
+    <?php require_once __DIR__ . '/../inc/header.php'; ?>
     <main class="container">
         <div class="l-wrapper">
             <?php if (!empty($_SESSION['success'])): ?>

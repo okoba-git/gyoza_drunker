@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
-require_once __DIR__ . '/../inc/login-check.php';
+session_start();
 
 //POSTデータを受け取る
 $name  = $_POST['name']  ?? '';
