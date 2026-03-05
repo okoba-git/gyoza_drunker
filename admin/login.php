@@ -7,7 +7,9 @@ if (isset($_SESSION['id'])) {
     header('location:index.php');
     exit();
 }
-
+$message = $_SESSION['res_message'] ?? '';
+unset($_SESSION['res_message']);
+$type = ['danger', 'primary'];
 ?>
 <!doctype html>
 <html lang="ja">
@@ -20,14 +22,20 @@ if (isset($_SESSION['id'])) {
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
         rel="stylesheet">
-
-    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
     <main class="container">
         <div class="l-wrapper">
             <h1 class="my-5 text-center">管理画面 - ログイン</h1>
+            <!-- メッセージ -->
+            <div id="message-area">
+                <?php if ($message !== ''): ?>
+                    <div class="alert alert-<?php echo $type[$message['type']]; ?> alert-dismissible" role="alert">
+                        <div><?php echo $message['msg']; ?></div>
+                    </div>
+                <?php endif; ?>
+            </div>
 
             <form action="login-do.php" method="post">
                 <div class="row justify-content-center align-items-center mb-4">
@@ -53,7 +61,7 @@ if (isset($_SESSION['id'])) {
     </main>
 
     <!-- Bootstrap Javascript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-jdSIJTK9l6XwXj3RixpVDXtMcA2bFd9O81RlLAwhpr2oXRqvQP88rr16IeFXTgFE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

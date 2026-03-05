@@ -12,7 +12,6 @@ session_start();
     <title>管理者登録｜ふくおか餃子FES</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
