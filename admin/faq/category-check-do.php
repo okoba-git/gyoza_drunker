@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
+require_once __DIR__ . '/../inc/login-check.php';
 
 // 文字列として受け取ったあと数値に変換
 $sort_order = isset($_GET['sort_order']) ? (int)$_GET['sort_order'] : '';

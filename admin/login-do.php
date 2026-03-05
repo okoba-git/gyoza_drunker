@@ -1,6 +1,6 @@
 <?php
-session_start();
 require_once __DIR__ . ('/../inc/function.php');
+session_start();
 
 if (!empty($_POST)) {
     if (!empty($_POST['userid']) && !empty($_POST['password'])) {

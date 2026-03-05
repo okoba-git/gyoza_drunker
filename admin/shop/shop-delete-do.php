@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
-require_once __DIR__ . '/../../inc/config.php';
+require_once __DIR__ . '/../inc/login-check.php';
 
 // TODO: データ受け取り
 if (!empty($_POST)) {

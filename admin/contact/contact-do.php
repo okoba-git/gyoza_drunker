@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
+require_once __DIR__ . '/../inc/login-check.php';
 
 $state = $_GET['state'] ?? '';
 $id = $_GET['id'] ?? '';
