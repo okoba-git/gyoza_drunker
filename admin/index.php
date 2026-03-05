@@ -20,28 +20,36 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <title>トップページ</title>
 </head>
 
-<body class="l-wrapper">
-    <?php require_once __DIR__ . '/inc/header.php'; ?>
+<body>
+    <?php
+    $link = '.';
+    require_once __DIR__ . '/inc/header.php';
+    ?>
+    <main class="container">
+        <div class="l-wrapper">
+            <h1 class="my-5 text-center">トップページ</h1>
+            <div class="d-flex justify-content-center text-center">
+                <ul class="list-group col-5">
+                    <a href="users/admin-list.php" class="list-group-item list-group-item-action">管理者一覧</a>
+                    <a href="news/news-list.php" class="list-group-item list-group-item-action">お知らせ一覧</a>
+                    <a href="contact/contact-list.php" class="list-group-item list-group-item-action">お問い合わせ一覧</a>
+                    <a href="shop/shop-list.php" class="list-group-item list-group-item-action">店舗一覧</a>
+                    <a href="faq/faq-list.php" class="list-group-item list-group-item-action">FAQカテゴリ</a>
+                </ul>
+            </div>
 
-    <h1 class="mb-5">トップページ</h1>
-    <ul>
-        <li class="list-group-item"><a href="users/admin-list.php" class="nav-link">管理者一覧</a></li>
-        <li class="list-group-item"><a href="news/news-list.php" class="nav-link">お知らせ一覧</a></li>
-        <li class="list-group-item"><a href="contact/contact-list.php" class="nav-link">お問い合わせ一覧</a></li>
-        <li class="list-group-item"><a href="shop/shop-list.php" class="nav-link">店舗一覧</a></li>
-        <li class="list-group-item"><a href="faq/faq-list.php" class="nav-link">FAQカテゴリ</a></li>
-    </ul>
-
-
+        </div>
+    </main>
     <!-- Bootstrap Javascript(jQuery含む) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script>
+        window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery-slim.min.js"><\/script>')
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
