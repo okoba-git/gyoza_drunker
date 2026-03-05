@@ -35,9 +35,11 @@ try {
 <html lang="ja">
 
 <head>
-    <title>店舗情報更新｜ふくおか餃子FES</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/style.css">
+    <title>店舗情報更新｜ふくおか餃子FES</title>
 </head>
 
 <body>
@@ -46,7 +48,7 @@ try {
     ?>
 
     <main role="main" class="container" style="padding:60px 15px 0">
-        <h1 class="my-5">商品情報 - 編集</h1>
+        <h1 class="c-title">商品情報 - 編集</h1>
 
         <form action="menu-edit-do.php" method="post">
             <div class="mb-3 col">
@@ -76,23 +78,23 @@ try {
                 <input type="text" name="file_name" id="file_name" value="<?php echo $menu['file_name']; ?>" class="form-control" placeholder="例：menu01.jpg" required>
             </div>
 
-            <div class="mb-3 col">
+            <div class="mb-5 col">
                 <label for="image_alt" class="form-label">画像説明</label>
                 <input type="text" name="image_alt" id="image_alt" value="<?php echo $menu['image_alt']; ?>" class="form-control" placeholder="例：肉汁あふれる焼き餃子" required>
             </div>
 
             <div class="d-flex flex-row gap-2">
                 <input type="hidden" name="id" value="<?php echo $menu['id']; ?>">
-                <button type="submit" class="btn btn-info text-white" style="min-width:120px;">
+                <button type="submit" class="btn btn-info btn-lg  text-white" style="min-width:120px;">
                     更新する
                 </button>
 
-                <a class="btn btn-info btn-lg text-white" href="menu-edit.php?id=<?php echo $menu['id']; ?>" style=" min-width:120px;">キャンセル</a>
+                <a class="btn btn-secondary btn-lg text-white" href="menu-edit.php?id=<?php echo $menu['id']; ?>" style=" min-width:120px;">キャンセル</a>
             </div>
         </form>
 
         <div class=" text-center">
-            <a href="menu-detail.php?id=<?php echo $menu['id']; ?>" class="btn btn-primary mt-3">商品詳細に戻る</a>
+            <a href="menu-detail.php?id=<?php echo $menu['id']; ?>" class="btn btn-primary btn-lg mt-3">商品詳細に戻る</a>
         </div>
     </main>
 
