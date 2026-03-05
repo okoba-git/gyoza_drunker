@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . ('/../../inc/config.php');
 require_once __DIR__ . ('/../../inc/function.php');
-
 session_start();
 
 // DBに接続
