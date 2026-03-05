@@ -1,3 +1,6 @@
+<?php
+require_once __DIR__ . '/../inc/login-check.php'; 
+?>
 <!DOCTYPE html>
 <html lang="ja">
 

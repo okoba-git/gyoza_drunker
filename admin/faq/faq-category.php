@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
+require_once __DIR__ . '/../inc/login-check.php';
 
 try {
   // faqカテゴリを取得

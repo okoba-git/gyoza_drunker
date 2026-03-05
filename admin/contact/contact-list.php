@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
+require_once __DIR__ . '/../inc/login-check.php';
 
 // お問い合わせとお問い合わせステータス用配列
 $contacts = [];

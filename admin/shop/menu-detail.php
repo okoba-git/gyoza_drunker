@@ -1,7 +1,6 @@
 <?php
-require_once __DIR__ . ('/../../inc/config.php');
-require_once __DIR__ . ('/../../inc/function.php');
-session_start();
+require_once __DIR__ . '/../../inc/function.php';
+require_once __DIR__ . '/../inc/login-check.php';
 
 // DBに接続
 // ID取得とバリデーション

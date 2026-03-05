@@ -1,6 +1,11 @@
-<?php require_once __DIR__ . ('/../inc/function.php');
-require_once __DIR__ . ('/../inc/config.php');
+<?php
+require_once __DIR__ . ('/../inc/function.php');
 
+session_start();
+if (!isset($_SESSION['id'])) {
+    header('location:login.php');
+    exit();
+}
 
 try {
     $db = db_connect();

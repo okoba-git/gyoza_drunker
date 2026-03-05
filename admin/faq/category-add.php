@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
+require_once __DIR__ . '/../inc/login-check.php';
 
 try{
   $next = get_next_sort_order();
@@ -7,7 +8,6 @@ try{
   debug_log($e->getMessage());
 }
 
-session_start();
 $message = $_SESSION['res_message'] ?? '';
 unset($_SESSION['res_message']);
 $type = ['danger', 'primary'];

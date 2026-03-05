@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
+require_once __DIR__ . '/../inc/login-check.php';
 $id = isset($_GET['id']) ? (int)$_GET['id'] : '';
 try{
   $faq = get_faq_category_data($id);
@@ -7,7 +8,6 @@ try{
   debug_log($e->getMessage());
 }
 
-session_start();
 $message = $_SESSION['res_message'] ?? '';
 unset($_SESSION['res_message']);
 $type = ['danger', 'primary'];
