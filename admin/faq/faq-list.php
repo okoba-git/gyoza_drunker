@@ -1,5 +1,9 @@
 <?php
 require_once __DIR__ . '/../../inc/function.php';
+session_start();
+$message = $_SESSION['res_message'] ?? '';
+unset($_SESSION['res_message']);
+$type = ['danger', 'primary'];
 
 try {
   // faqカテゴリを取得
@@ -26,7 +30,14 @@ try {
   <main class="container">
     <div class="l-wrapper">
       <h1 class="my-5 text-center">FAQ - 一覧</h1>
-      <div id="message-area"></div>
+      <!-- メッセージ -->
+      <div id="message-area">
+        <?php if ($message !== ''): ?>
+          <div class="alert alert-<?php echo $type[$message['type']]; ?> alert-dismissible" role="alert">
+            <div><?php echo $message['msg']; ?></div>
+          </div>
+        <?php endif; ?>
+      </div>
       <!-- カテゴリー -->
       <div class="container my-3">
         <div class="d-sm-flex justify-content-between align-items-center">

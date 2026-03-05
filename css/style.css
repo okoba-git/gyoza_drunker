@@ -483,7 +483,7 @@ textarea {
     margin-block-start: 40px;
 }
 
-.l-faqCard :nth-last-of-type(1) {
+.l-faqCard dd:nth-last-of-type(1) {
     margin-block-end: 0;
 }
 
