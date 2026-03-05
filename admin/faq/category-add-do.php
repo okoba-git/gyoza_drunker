@@ -8,7 +8,7 @@ $sort_order = isset($_POST['sort_order']) ? (int)$_POST['sort_order'] : '';
 $json = [];
 
 // POST失敗時
-if ($name === '' || $sort_order === '') {
+if (!isAvailableMethodValue($name,$sort_order)) {
   $_SESSION['res_message'] = ['type' => 0, 'msg' => 'POSTの取得に失敗しました。'];
   header('Location: ./category-add.php');
   exit();

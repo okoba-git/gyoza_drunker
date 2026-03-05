@@ -42,11 +42,11 @@ $type = ['danger', 'primary'];
         <input type="hidden" name="id" value="<?php echo $id; ?>" id="faq-id">
         <div class="col-5 mb-3">
           <label for="name" class="form-label">カテゴリー名</label>
-          <input type="text" name="name" id="name" class="form-control" value=<?php echo $faq['name']; ?>>
+          <input type="text" name="name" id="name" class="form-control" value=<?php echo $faq['name']; ?> required>
         </div>
         <div class="col-1 mb-5">
           <label for="sort_order" class="form-label">ソート番号</label>
-          <input type="number" name="sort_order" id="sort_order" class="form-control" value=<?php echo $faq['sort_order']; ?>>
+          <input type="number" name="sort_order" id="sort_order" class="form-control" value=<?php echo $faq['sort_order']; ?> required>
         </div>
         <div class="d-flex flex-row gap-2">
           <input type="submit" value="編集" class="btn btn-info btn-lg text-white" style="min-width:120px;" id="btn-submit">
