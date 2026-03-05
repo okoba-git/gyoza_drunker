@@ -18,4 +18,12 @@ const appendMessage = (message, type) => {
   messageArea.append(wrapper);
 }
 
-export {messageArea, appendMessage};
+/**
+ * jsonに登録されたエラーメッセージを表示する
+ * @param {json} json statusとmessageをもつjson
+ */
+const jsonErrorMessage = (json) => {
+  appendMessage(`エラーコード:${json.status}<br>${json.message}`, 'danger');
+}
+
+export {messageArea, appendMessage, jsonErrorMessage};
