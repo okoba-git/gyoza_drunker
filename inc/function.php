@@ -143,6 +143,20 @@ function get_next_sort_order()
 }
 
 /**
+ * GET(POST)メソッドの値が取得できているかチェック
+ * @param ...$values 可変長引数、取得してきている値を,区切りで渡す
+ * @return bool すべて取得していればtrue,一つでも取得されていなければfalseを返す
+ */
+function isAvailableMethodValue(...$values){
+    foreach($values as $value){
+        if($value === ''){
+            return false;
+        }
+    }
+    return true;
+}
+
+/**
  * 配列を表示する。
  * 
  * var_dumpを<pre>で囲んで表示する。デバッグ用なので必ず消すこと。
