@@ -91,7 +91,7 @@ try {
                     登録
                 </button>
 
-                <a class="btn btn-info btn-lg text-white" href="shop-detail.php?id=<?php echo $shop['id']; ?>" style="min-width:120px;">キャンセル</a>
+                <a class="btn btn-info btn-lg text-white" href="menu-add.php?id=<?php echo $shop['id']; ?>" style="min-width:120px;">キャンセル</a>
             </div>
         </form>
 
