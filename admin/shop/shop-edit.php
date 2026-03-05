@@ -39,10 +39,9 @@ try {
             <?php require_once __DIR__ . '/../../inc/message_area.php'; ?>
             <form action="shop-edit-do.php" method="post" class="needs-validation mb-3" novalidate>
                 <div class="mb-3">
-                    <label for="shop_name" class="form-label">店舗名</label>
-                    <input type="text" name="shop_name" id="shop_name" class="form-control" value="<?php echo $shop['name']; ?>" placeholder="店舗名を入力してください。" required>
+                    <label for="name" class="form-label">店舗名</label>
+                    <input type="text" name="name" id="name" class="form-control" value="<?php echo $shop['name']; ?>" placeholder="店舗名を入力してください。" required>
                 </div>
-
                 <div class="mb-3">
                     <label for="shop_num" class="form-label">ブース番号</label>
                     <input type="text" name="shop_num" id="shop_num" class="form-control" value="<?php echo $shop['shop_num']; ?>" placeholder="例：B-01">
@@ -51,17 +50,21 @@ try {
                 <div class="mb-5">
                     <label for="body" class="form-label">紹介文</label>
                     <textarea name="body" id="body" class="form-control" placeholder="紹介文を入力してください。" required>
-                <?php echo $shop['body']; ?>
-            </textarea>
+                        <?php echo $shop['body']; ?>
+                    </textarea>
                 </div>
 
                 <div class="d-flex gap-2 mb-3">
-                    <input type="submit" value="更新" class="btn btn-info text-white btn-lg">
-                    <a href="shop-detail.php?id=<?php echo $id; ?>" class="btn btn-secondary btn-lg">キャンセル</a>
+                    <input type="hidden" name="id" value="<?php echo $shop['id']; ?>">
+                    <button type="submit" class="btn btn-info btn-lg  text-white" style="min-width:120px;">
+                        更新する
+                    </button>
+                    <a href="shop-list.php" class="btn btn-secondary btn-lg">キャンセル</a>
                 </div>
             </form>
         </div>
     </main>
+
 
     <!-- Bootstrap Javascript(jQuery含む) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>

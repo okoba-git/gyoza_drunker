@@ -3,6 +3,7 @@ require_once __DIR__ . '/../../inc/function.php';
 $path = '..';
 require_once __DIR__ . '/../inc/login-check.php';
 
+
 // TODO: データ受け取り
 if (!empty($_POST)) {
     // POST送信されたとき
@@ -28,7 +29,7 @@ if (!empty($_POST)) {
             $stmt->bindParam(':shop_num', $shop_num, PDO::PARAM_STR);
             $stmt->bindParam(':name', $name, PDO::PARAM_STR);
             $stmt->bindParam(':body', $body, PDO::PARAM_STR);
-            $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
 
             session_start();
