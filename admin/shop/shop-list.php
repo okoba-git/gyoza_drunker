@@ -1,5 +1,7 @@
-<?php require_once __DIR__ . ('/../../inc/function.php');
+<?php
+require_once __DIR__ . ('/../../inc/function.php');
 require_once __DIR__ . ('/../../inc/config.php');
+
 try {
     $db = db_connect();
     $sql = 'SELECT name,shop_num,id FROM shops';
@@ -19,7 +21,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/style.css">
     <title>店舗 - 一覧</title>
 </head>
@@ -27,8 +29,8 @@ try {
 <body class="l-wrapper">
     <?php require_once __DIR__ . ('/../inc/header.php'); ?>
 
-    <h1>店舗 - 一覧</h1>
-    <a class="btn btn-primary mb-3" href="shop-add.php">新規作成</a>
+    <h1 class="c-title">店舗 - 一覧</h1>
+    <a class="btn btn-info btn-lg text-white mb-3" href="shop-add.php">新規作成</a>
     <table class="table table-bordered">
         <thead>
             <tr class="">

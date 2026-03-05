@@ -30,10 +30,9 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/style.css">
-    <title>店舗 - 詳細</title>
+    <title>店舗詳細｜ふくおか餃子FES</title>
 </head>
 
 <body class="l-wrapper">
@@ -44,50 +43,48 @@ try {
         <?php unset($_SESSION['success']); ?>
     <?php endif; ?>
 
-    <h1 class="mb-5">店舗 - 詳細</h1>
+    <section class="mb-5">
+        <h1 class="c-title">店舗 - 詳細</h1>
+        <a class="btn btn-info btn-lg text-white mb-3" href="shop-edit.php">編集</a>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th class="col-3">店舗名：</th>
+                    <td class="col-9"><?php echo $shop['name']; ?></td>
+                </tr>
+                <tr>
+                    <th>紹介文：</th>
+                    <td><?php echo $shop['body']; ?></td>
+                </tr>
+                <tr>
+                    <th>ブース番号：</th>
+                    <td><?php echo $shop['shop_num']; ?></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
-    <a class="btn btn-primary" href="shop-edit.php">編集</a>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th class="col-3">店舗名：</th>
-                <td class="col-9"><?php echo $shop['name']; ?></td>
-            </tr>
-            <tr>
-                <th>紹介文：</th>
-                <td><?php echo $shop['body']; ?></td>
-            </tr>
-            <tr>
-                <th>ブース番号：</th>
-                <td><?php echo $shop['shop_num']; ?></td>
-            </tr>
-        </tbody>
-    </table>
+    <section>
+        <h2 class="mb-3">商品一覧</h2>
+        <form action="menu-add.php" method="get">
+            <input type="hidden" name="id" value="<?php echo $shop['id']; ?>">
+            <button type="submit" class="btn btn-info btn-lg text-white mb-3">
+                商品追加
+            </button>
+        </form>
 
-
-    <h1>商品 - 一覧</h1>
-    <form action="menu-add.php" method="get">
-        <input type="hidden" name="id" value="<?php echo $shop['id']; ?>">
-        <button type="submit" class="btn btn-primary">
-            商品追加
-        </button>
-    </form>
-    <table class="table">
-        <?php foreach ($menu as $item) : ?>
-            <tr>
-                <td>
+        <ul class="list-group list-group-flush">
+            <?php foreach ($menu as $item) : ?>
+                <li class="d-flex flex-row align-items-center list-group-item">
                     <a href="menu-detail.php?id=<?php echo $item["id"] ?>"><?php echo $item['name'] ?></a>
-                </td>
-                <td>
-                    <form><input type="submit" class="btn btn-danger" value="削除"></form>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </section>
 
     <div class=" text-center">
-        <a href="shop-list.php" class="btn btn-primary mt-3">店舗一覧に戻る</a>
+        <a href="shop-list.php" class="btn btn-primary btn-lg mt-3">店舗一覧に戻る</a>
     </div>
 
 
