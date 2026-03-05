@@ -17,7 +17,7 @@ try {
     $shop = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // 商品情報取得
-    $sql2 = 'SELECT name,id FROM products WHERE id= :id';
+    $sql2 = 'SELECT name,id FROM products WHERE shop_id = :id';
     $stmt2 = $db->prepare($sql2);
     $stmt2->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt2->execute();
@@ -43,11 +43,6 @@ try {
     ?>
 
     <main role="main" class="container" style="padding:60px 15px 0">
-        <?php if (!empty($_SESSION['success'])): ?>
-            <div class="alert alert-success">登録完了しました！</div>
-            <?php unset($_SESSION['success']); ?>
-        <?php endif; ?>
-
         <h1 class="my-5">メニュー - 新規登録</h1>
 
         <form action="menu-add-do.php" method="post">
@@ -91,8 +86,12 @@ try {
             </div>
 
             <div class="d-flex flex-row gap-2">
-                <input type="submit" value="登録" class="btn btn-info btn-lg text-white" style="min-width:120px;">
-                <a class="btn btn-info btn-lg text-white" href="news-add.php" style="min-width:120px;">キャンセル</a>
+                <input type="hidden" name="shop_id" value="<?php echo $shop['id']; ?>">
+                <button type="submit" class="btn btn-info text-white" style="min-width:120px;">
+                    登録
+                </button>
+
+                <a class="btn btn-info btn-lg text-white" href="shop-detail.php?id=<?php echo $shop['id']; ?>" style="min-width:120px;">キャンセル</a>
             </div>
         </form>
 
